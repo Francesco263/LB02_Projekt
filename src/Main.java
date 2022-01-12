@@ -80,7 +80,7 @@ public class Main {
 
     public void fillArray(String filename, int fileSize){
 
-        int[] array = new int[fileSize];
+        int[] arrayToSort = new int[fileSize];
         int cntr = 0;
 
         BufferedReader br = null;
@@ -90,7 +90,7 @@ public class Main {
             br = new BufferedReader(fr); // java.io.BufferedReader
             String line;
             while ((line = br.readLine()) != null) {
-                array[cntr] = Integer.parseInt(line);
+                arrayToSort[cntr] = Integer.parseInt(line);
                 cntr++;
             }
         }
@@ -101,7 +101,7 @@ public class Main {
             catch(IOException e) { e.printStackTrace(); }
         }
 
-        ChooseAlgorithm(array);
+        ChooseAlgorithm(arrayToSort);
     }
 
     public void ChooseAlgorithm(int[] arrayToSort){
@@ -111,14 +111,21 @@ public class Main {
 
         while (algorithmChoice == ' '){
 
-            System.out.println("Press A - BubbleSort");
-            System.out.println("Press B - QuickSort");
+            System.out.println("Press A - QuickSort");
+            System.out.println("Press B - RadixSort");
             System.out.println("Press C - SelectionSort");
             algorithmChoice = einleser.readChar("> ", new char[]{'a','b','c'});
             algorithmChoice = Character.toUpperCase(algorithmChoice);
 
-
-
+        }
+        if (algorithmChoice == 'A'){
+            QuickSort.sort(arrayToSort);
+        }
+        else if (algorithmChoice == 'B'){
+            RadixSort.sort(arrayToSort);
+        }
+        else if (algorithmChoice == 'C'){
+            SelectionSort.sort(arrayToSort);
         }
     }
 
