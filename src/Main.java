@@ -22,8 +22,17 @@ public class Main {
     }
 
     public void Greetings(){
-        System.out.println("Welcome to our sorting program v.1.0.");
+        System.out.println("");
+        System.out.println("Welcome to our sorting program v.1.2.");
+        System.out.println("");
+        System.out.println("");
         chooseFile();
+    }
+
+    public void ClearCmd(){
+        for (int i = 0; i < 50; i++){
+            System.out.println("");
+        }
     }
 
     public void chooseFile(){
@@ -31,6 +40,7 @@ public class Main {
         char fileChoice = ' ';
 
         System.out.println("Choose a file which will be sorted.");
+        System.out.println("___________________________________");
 
         while (fileChoice == ' '){
 
@@ -56,7 +66,7 @@ public class Main {
 
         String fileName = "";
         int fileSize = 0;
-        FileDat[] fileDats = new FileDat[8];
+        FileDat[] fileDats = new FileDat[9];
 
         FileDat file1 = new FileDat('A', "InversTeilsortiert1000.dat", 1000);
         FileDat file2 = new FileDat('B', "InversTeilsortiert10000.dat", 10000);
@@ -67,6 +77,17 @@ public class Main {
         FileDat file7 = new FileDat('G', "Teilsortiert1000.dat", 1000);
         FileDat file8 = new FileDat('H', "Teilsortiert10000.dat", 10000);
         FileDat file9 = new FileDat('I', "Teilsortiert100000.dat", 100000);
+
+        fileDats[0]= file1;
+        fileDats[1]= file2;
+        fileDats[2]= file3;
+        fileDats[3]= file4;
+        fileDats[4]= file5;
+        fileDats[5]= file6;
+        fileDats[6]= file7;
+        fileDats[7]= file8;
+        fileDats[8]= file9;
+
 
         for (int i = 0; i < 9; i++){
             if (choice2 == fileDats[i].getFileToken()){
@@ -107,7 +128,8 @@ public class Main {
     public void ChooseAlgorithm(int[] arrayToSort){
         char algorithmChoice = ' ';
 
-        System.out.println("Choose what algorithm which will be use to sort.");
+        ClearCmd();
+        System.out.println("Choose algorithm, which will be tested.");
 
         while (algorithmChoice == ' '){
 
@@ -119,13 +141,13 @@ public class Main {
 
         }
         if (algorithmChoice == 'A'){
-            QuickSort.sort(arrayToSort);
+            //QuickSort.sort(arrayToSort);
         }
         else if (algorithmChoice == 'B'){
-            RadixSort.sort(arrayToSort);
+            //RadixSort.sort(arrayToSort);
         }
         else if (algorithmChoice == 'C'){
-            SelectionSort.sort(arrayToSort);
+            //SelectionSort.sort(arrayToSort);
         }
     }
 
