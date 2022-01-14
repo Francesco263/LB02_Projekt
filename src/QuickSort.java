@@ -82,6 +82,31 @@ class QuickSort extends Algorithm{
         System.out.println("Sorted array: ");
         printArray(arr, n);
     }
-}
 
-// This code is contributed by Ayush Choudhary
+
+    //Philip du Schwanz implementier das bitte richtig da une, danke.
+    @Override
+    public void sort(int[] array) {
+
+    }
+
+    @Override
+    public long getTime() {
+        return 0;
+    }
+
+    @Override
+    public int getComparison() {
+        return 0;
+    }
+
+    @Override
+    public int getArrayAccess() {
+        return 0;
+    }
+
+    @Override
+    public int getStorage() {
+        return 0;
+    }
+}

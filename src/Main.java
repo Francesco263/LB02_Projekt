@@ -23,7 +23,7 @@ public class Main {
     }
 
     public void Greetings(){
-        System.out.println("Welcome to our sorting program v.2.0.");
+        System.out.println("Welcome to our sorting program v.2.1.");
         System.out.println("_____________________________________");
         LoadingScreen();
         ClearCmd();
@@ -130,7 +130,7 @@ public class Main {
 
     public void sortInitialize(int option, int choose, ArrayDat[] arrays){
         Algorithm[] algorithms = new Algorithm[2];
-        algorithms[0] = new Quicksort();
+        algorithms[0] = new QuickSort();
         if (option == 1){
             sortMain(0,algorithms.length,arrays, algorithms);
         }
