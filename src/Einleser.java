@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Diese Klasse hilft bei der Eingabe in der Konsole
  *
- * @author Daniel (Francesco wurde die Nutzung gewährt)
+ * @author Feroldi Francesco(Inspiriert von Daniel)
  * @date 2099-06-08
  */
 public class Einleser {
@@ -20,7 +20,7 @@ public class Einleser {
         }
         if (err == null) {
             if (von == bis) {
-                err = "Bitte Ganzzahl eingeben   > ";
+                err = "Please enter a number   > ";
             } else {
                 err = "Bitte Ganzzahl zwischen %d und %d eingeben   > ";
             }
@@ -69,7 +69,7 @@ public class Einleser {
         }
         if (err == null) {
             if (von == bis) {
-                err = "Bitte Zahl eingeben   > ";
+                err = "Please enter a  number  > ";
             } else {
                 err = "Bitte Zahl zwischen %.1f und %.1f eingeben   > ";
             }
@@ -150,7 +150,7 @@ public class Einleser {
             if (options == null) {
                 err = "Bitte geben sie einen Buchstaben ein";
             } else {
-                err = "Diese Möglichkeit gibt es nicht > ";
+                err = "This option is not available > ";
             }
         }
         char ch;

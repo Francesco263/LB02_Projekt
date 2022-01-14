@@ -1,4 +1,4 @@
-class QuickSort{
+class QuickSort extends Algorithm{
 
     // A utility function to swap two elements
     static void swap(int[] arr, int i, int j)

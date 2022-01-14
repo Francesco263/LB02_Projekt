@@ -1,3 +1,5 @@
+import com.sun.xml.internal.bind.v2.model.annotation.Quick;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -12,7 +14,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         Main program = new Main();
         program.run();
     }
@@ -22,11 +23,11 @@ public class Main {
     }
 
     public void Greetings(){
-        System.out.println("");
-        System.out.println("Welcome to our sorting program v.1.2.");
-        System.out.println("");
-        System.out.println("");
-        chooseFile();
+        System.out.println("Welcome to our sorting program v.2.0.");
+        System.out.println("_____________________________________");
+        LoadingScreen();
+        ClearCmd();
+        chooseRunMethod();
     }
 
     public void ClearCmd(){
@@ -35,83 +36,86 @@ public class Main {
         }
     }
 
-    public void chooseFile(){
-
-        char fileChoice = ' ';
-
-        System.out.println("Choose a file which will be sorted.");
-        System.out.println("___________________________________");
-
-        while (fileChoice == ' '){
-
-            System.out.println("Press A - InvertedPartialSorted (1000)");
-            System.out.println("Press B - InvertedPartialSorted (10000)");
-            System.out.println("Press C - InvertedPartialSorted (100000)");
-            System.out.println("Press D - Random (1000)");
-            System.out.println("Press E - Random (10000)");
-            System.out.println("Press F - Random (100000)");
-            System.out.println("Press G - PartialSorted (1000)");
-            System.out.println("Press H - PartialSorted (10000)");
-            System.out.println("Press I - PartialSorted (100000)");
-            fileChoice = einleser.readChar("> ", new char[]{'a','b','c','d', 'e', 'f', 'g', 'h', 'i'});
-            fileChoice = Character.toUpperCase(fileChoice);
-
+    public void LoadingScreen(){
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-
-        Initialize(fileChoice);
-
     }
 
-    public void Initialize(char choice2){
+    public void chooseRunMethod(){
+        char runMethodSelection = ' ';
+        while (runMethodSelection == ' '){
+            System.out.println("Press A - run everything");
+            System.out.println("Press B - choose algorithm");
+            runMethodSelection = einleser.readChar("> ", new char[]{'a','b'});
+        }
+        ClearCmd();
+        if (runMethodSelection == 'a'){
+            initialize(1,0);
+            System.out.println("Please wait while the program is calculating...");
+        }
+        else if (runMethodSelection == 'b'){
+            chooseAlgorithm();
+        }
+    }
 
-        String fileName = "";
-        int fileSize = 0;
+    public void chooseAlgorithm(){
+        char algorithmSelection = ' ';
+        while (algorithmSelection == ' '){
+            System.out.println("Press A - QuickSort");
+            System.out.println("Press B - RadixSort");
+            System.out.println("Press C - .........");
+            algorithmSelection = einleser.readChar("> ", new char[]{'a','b', 'c'});
+        }
+        System.out.println("Please wait while the program is calculating...");
+        LoadingScreen();
+        if (algorithmSelection == 'a'){
+            initialize(2,1);
+        }
+        else if (algorithmSelection == 'b'){
+            initialize(2,2);
+        }
+        else{
+            initialize(2,3);
+        }
+    }
+
+    public void initialize(int option, int choose){
         FileDat[] fileDats = new FileDat[9];
-
-        FileDat file1 = new FileDat('A', "InversTeilsortiert1000.dat", 1000);
-        FileDat file2 = new FileDat('B', "InversTeilsortiert10000.dat", 10000);
-        FileDat file3 = new FileDat('C', "InversTeilsortiert100000.dat", 100000);
-        FileDat file4 = new FileDat('D', "Random1000.dat", 1000);
-        FileDat file5 = new FileDat('E', "Random10000.dat", 10000);
-        FileDat file6 = new FileDat('F', "Random100000.dat", 100000);
-        FileDat file7 = new FileDat('G', "Teilsortiert1000.dat", 1000);
-        FileDat file8 = new FileDat('H', "Teilsortiert10000.dat", 10000);
-        FileDat file9 = new FileDat('I', "Teilsortiert100000.dat", 100000);
-
-        fileDats[0]= file1;
-        fileDats[1]= file2;
-        fileDats[2]= file3;
-        fileDats[3]= file4;
-        fileDats[4]= file5;
-        fileDats[5]= file6;
-        fileDats[6]= file7;
-        fileDats[7]= file8;
-        fileDats[8]= file9;
-
-
-        for (int i = 0; i < 9; i++){
-            if (choice2 == fileDats[i].getFileToken()){
-                fileName = fileDats[i].getFileName();
-                fileSize = fileDats[i].getFileSize();
-            }
-        }
-
-        fillArray(fileName, fileSize);
+        fileDats[0] = new FileDat("InversTeilsortiert1000.dat", 1000);
+        fileDats[1] = new FileDat("InversTeilsortiert10000.dat", 10000);
+        fileDats[2] = new FileDat("InversTeilsortiert100000.dat", 100000);
+        fileDats[3] = new FileDat("Random1000.dat", 1000);
+        fileDats[4] = new FileDat("Random10000.dat", 10000);
+        fileDats[5] = new FileDat("Random100000.dat", 100000);
+        fileDats[6] = new FileDat("Teilsortiert1000.dat", 1000);
+        fileDats[7] = new FileDat("Teilsortiert10000.dat", 10000);
+        fileDats[8] = new FileDat("Teilsortiert100000.dat", 100000);
+        createArray(option, choose, fileDats);
     }
 
-    public void fillArray(String filename, int fileSize){
+    public void createArray(int option, int choose, FileDat[] fileDats){
+        ArrayDat[] arrays = new ArrayDat[9];
+        for (int i = 0; i < 9; i++){
+            ArrayDat array = new ArrayDat(arrayFiller(fileDats[i].getFileName(), fileDats[i].getFileSize()));
+            arrays[i] = array;
+        }
+        sortInitialize(option, choose, arrays);
+    }
 
-        int[] arrayToSort = new int[fileSize];
+    public int[] arrayFiller(String filename, int filesize){
         int cntr = 0;
-
+        int[] array = new int[filesize];
         BufferedReader br = null;
         try {
-            File file = new File("files\\" + filename); // java.io.File
-            FileReader fr = new FileReader(file); // java.io.FileReader
-            br = new BufferedReader(fr); // java.io.BufferedReader
+            File file = new File("LB02_Projekt/files/" + filename);
+            FileReader fr = new FileReader(file);
+            br = new BufferedReader(fr);
             String line;
             while ((line = br.readLine()) != null) {
-                arrayToSort[cntr] = Integer.parseInt(line);
+                array[cntr] = Integer.parseInt(line);
                 cntr++;
             }
         }
@@ -121,35 +125,35 @@ public class Main {
             try { if (br != null) br.close(); }
             catch(IOException e) { e.printStackTrace(); }
         }
-
-        ChooseAlgorithm(arrayToSort);
+        return array;
     }
 
-    public void ChooseAlgorithm(int[] arrayToSort){
-        char algorithmChoice = ' ';
-
-        ClearCmd();
-        System.out.println("Choose algorithm, which will be tested.");
-
-        while (algorithmChoice == ' '){
-
-            System.out.println("Press A - QuickSort");
-            System.out.println("Press B - RadixSort");
-            System.out.println("Press C - SelectionSort");
-            algorithmChoice = einleser.readChar("> ", new char[]{'a','b','c'});
-            algorithmChoice = Character.toUpperCase(algorithmChoice);
-
+    public void sortInitialize(int option, int choose, ArrayDat[] arrays){
+        Algorithm[] algorithms = new Algorithm[2];
+        algorithms[0] = new Quicksort();
+        if (option == 1){
+            sortMain(0,algorithms.length,arrays, algorithms);
         }
-        if (algorithmChoice == 'A'){
-            //QuickSort.sort(arrayToSort);
-        }
-        else if (algorithmChoice == 'B'){
-            //RadixSort.sort(arrayToSort);
-        }
-        else if (algorithmChoice == 'C'){
-            //SelectionSort.sort(arrayToSort);
+        else{
+            if (choose == 1){
+                sortMain(0,1,arrays, algorithms);
+            }
+            else if (choose == 2){
+                sortMain(1,2,arrays, algorithms);
+            }
         }
     }
 
+    public void sortMain(int f, int valueF, ArrayDat[] arrays, Algorithm[] algorithms){
+        for (int i = f; i < valueF; i++){
+            for (int y = 0; y < 9; y++){
+                algorithms[i].sort(arrays[y].getArray());
+                createExcel(algorithms[i].getTime(), algorithms[i].getComparison(), algorithms[i].getArrayAccess(), algorithms[i].getStorage());
+            }
+        }
+    }
 
+    public void createExcel(long time, int comparison, int arrayAccess, int storage){
+        //Create Excel here.
+    }
 }
