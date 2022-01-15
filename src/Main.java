@@ -161,7 +161,6 @@ public class Main {
         return (Algorithm) c.getDeclaredConstructor().newInstance();
     }
     public <Workbook> void createExcel(long time, int comparison, int arrayAccess, int storage){
-        System.out.println(time);
-        //Hier wird Excel generiert
+        //Hier wird Excel generiert - Chris vill spass
     }
 }
