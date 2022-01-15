@@ -91,7 +91,7 @@ class QuickSort extends Algorithm{
 
     @Override
     public long getTime() {
-        return 111;
+        return 0;
     }
 
     @Override

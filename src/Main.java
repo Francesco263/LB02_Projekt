@@ -1,7 +1,9 @@
 import com.sun.xml.internal.bind.v2.model.annotation.Quick;
 import java.awt.*;
 import java.io.*;
+import java.lang.invoke.MethodHandle;
 import java.lang.reflect.InvocationTargetException;
+import java.util.NoSuchElementException;
 import java.util.Vector;
 
 public class Main {
@@ -17,7 +19,7 @@ public class Main {
         Greetings();
     }
     public void Greetings() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        System.out.println("Welcome to our sorting program v.3.1.");
+        System.out.println("Welcome to our sorting program v.3.2.");
         System.out.println("_____________________________________");
         LoadingScreen();
         ClearCmd();
@@ -117,8 +119,7 @@ public class Main {
             br = new BufferedReader(fr);
             String line;
             while ((line = br.readLine()) != null) {
-                array[cntr] = Integer.parseInt(line);
-                cntr++;
+                array[cntr++] = Integer.parseInt(line);
             }
         }
         catch(IOException e) { e.printStackTrace();}
@@ -158,6 +159,5 @@ public class Main {
     }
     public <Workbook> void createExcel(long time, int comparison, int arrayAccess, int storage){
         //Hier wird Excel generiert - Chris vill spass
-        System.out.println(time);
     }
 }
