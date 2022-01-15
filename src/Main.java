@@ -1,27 +1,18 @@
 import com.sun.xml.internal.bind.v2.model.annotation.Quick;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-
+import java.io.*;
 public class Main {
-
     Einleser einleser;
-
     public Main(){
         einleser = new Einleser();
     }
-
     public static void main(String[] args) {
         Main program = new Main();
         program.run();
     }
-
     private void run() {
         Greetings();
     }
-
     public void Greetings(){
         System.out.println("Welcome to our sorting program v.2.1.");
         System.out.println("_____________________________________");
@@ -29,21 +20,18 @@ public class Main {
         ClearCmd();
         chooseRunMethod();
     }
-
     public void ClearCmd(){
         for (int i = 0; i < 50; i++){
             System.out.println("");
         }
     }
-
     public void LoadingScreen(){
         try {
-            Thread.sleep(1500);
+            Thread.sleep(1300);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-
     public void chooseRunMethod(){
         char runMethodSelection = ' ';
         while (runMethodSelection == ' '){
@@ -60,7 +48,6 @@ public class Main {
             chooseAlgorithm();
         }
     }
-
     public void chooseAlgorithm(){
         char algorithmSelection = ' ';
         while (algorithmSelection == ' '){
@@ -81,7 +68,6 @@ public class Main {
             initialize(2,3);
         }
     }
-
     public void initialize(int option, int choose){
         FileDat[] fileDats = new FileDat[9];
         fileDats[0] = new FileDat("InversTeilsortiert1000.dat", 1000);
@@ -95,16 +81,14 @@ public class Main {
         fileDats[8] = new FileDat("Teilsortiert100000.dat", 100000);
         createArray(option, choose, fileDats);
     }
-
     public void createArray(int option, int choose, FileDat[] fileDats){
         ArrayDat[] arrays = new ArrayDat[9];
         for (int i = 0; i < 9; i++){
             ArrayDat array = new ArrayDat(arrayFiller(fileDats[i].getFileName(), fileDats[i].getFileSize()));
             arrays[i] = array;
         }
-        sortInitialize(option, choose, arrays);
+        sortInitializer(option, choose, arrays);
     }
-
     public int[] arrayFiller(String filename, int filesize){
         int cntr = 0;
         int[] array = new int[filesize];
@@ -127,23 +111,15 @@ public class Main {
         }
         return array;
     }
-
-    public void sortInitialize(int option, int choose, ArrayDat[] arrays){
+    public void sortInitializer(int option, int choose, ArrayDat[] arrays){
         Algorithm[] algorithms = new Algorithm[2];
-        algorithms[0] = new QuickSort();
         if (option == 1){
             sortMain(0,algorithms.length,arrays, algorithms);
         }
         else{
-            if (choose == 1){
-                sortMain(0,1,arrays, algorithms);
-            }
-            else if (choose == 2){
-                sortMain(1,2,arrays, algorithms);
-            }
+            sortMain((choose - 1),choose,arrays, algorithms);
         }
     }
-
     public void sortMain(int f, int valueF, ArrayDat[] arrays, Algorithm[] algorithms){
         for (int i = f; i < valueF; i++){
             for (int y = 0; y < 9; y++){
@@ -152,8 +128,12 @@ public class Main {
             }
         }
     }
-
-    public void createExcel(long time, int comparison, int arrayAccess, int storage){
-        //Create Excel here.
+    public Algorithm[] createAlgorithms(Algorithm[] algorithms){
+        algorithms[0] = new QuickSort();
+        algorithms[1] = new RadixSort();
+        return algorithms;
+    }
+    public <Workbook> void createExcel(long time, int comparison, int arrayAccess, int storage){
+        //Hier wird Excel generiert
     }
 }
