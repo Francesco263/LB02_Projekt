@@ -14,7 +14,7 @@ public class RadixSort extends Algorithm{
 
     @Override
     public long getTime() {
-        return 0;
+        return 222;
     }
 
     @Override

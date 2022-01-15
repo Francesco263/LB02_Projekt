@@ -58,7 +58,7 @@ public class Main {
                     blacklistFound = true;
                 }
             }
-            if (!blacklistFound && arrayNames.size() <= 27){
+            if (!blacklistFound && arrayNames.size() <= 26){
                 arrayNames.add(files[i].getName().substring(0, files[i].getName().length() - 5));
             }
         }
@@ -71,7 +71,7 @@ public class Main {
     }
     public void chooseAlgorithm(Vector<String> arrayNames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         char algorithmSelection = ' ';
-        char[] alphabet = new char[]{'A','B','C','D','E','F','G','H','I','J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'G', 'X', 'Y', 'Z'};
+        char[] alphabet = new char[]{'A','B','C','D','E','F','G','H','I','J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
         char[] selection = new char[arrayNames.size()];
         for (int i = 0; i < arrayNames.size(); i++){
             selection[i] = Character.toLowerCase(alphabet[i]);
@@ -162,5 +162,6 @@ public class Main {
     }
     public <Workbook> void createExcel(long time, int comparison, int arrayAccess, int storage){
         //Hier wird Excel generiert - Chris vill spass
+        System.out.println(time);
     }
 }
