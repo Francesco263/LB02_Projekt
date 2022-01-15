@@ -1,9 +1,5 @@
-import com.sun.xml.internal.bind.v2.model.annotation.Quick;
-import java.awt.*;
 import java.io.*;
-import java.lang.invoke.MethodHandle;
 import java.lang.reflect.InvocationTargetException;
-import java.util.NoSuchElementException;
 import java.util.Vector;
 
 public class Main {
