@@ -39,6 +39,7 @@ public class Main {
     }
     public void chooseRunMethod() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         char runMethodSelection = ' ';
+        System.out.println("Choose an option:\n");
         while (runMethodSelection == ' '){
             System.out.println("Press A - run everything");
             System.out.println("Press B - choose algorithm");
@@ -79,6 +80,7 @@ public class Main {
             selection[i] = Character.toLowerCase(alphabet[i]);
         }
         while (algorithmSelection == ' '){
+            System.out.println("Available algorithms:\n");
             for (int i = 0; i < arrayNames.size(); i++){
                 System.out.println("Press " + Character.toUpperCase(selection[i]) + " - " + arrayNames.get(i));
             }
