@@ -87,7 +87,6 @@ class QuickSort extends Algorithm{
     //Philip du Schwanz implementier das bitte richtig da une, danke.
     @Override
     public void sort(int[] array) {
-
     }
 
     @Override
