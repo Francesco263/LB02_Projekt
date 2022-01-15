@@ -92,15 +92,11 @@ public class Main {
     }
     public void initialize(int option, int choose, Vector<String> arrayNames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         FileDat[] fileDats = new FileDat[9];
-        fileDats[0] = new FileDat("InversTeilsortiert1000.dat", 1000);
-        fileDats[1] = new FileDat("InversTeilsortiert10000.dat", 10000);
-        fileDats[2] = new FileDat("InversTeilsortiert100000.dat", 100000);
-        fileDats[3] = new FileDat("Random1000.dat", 1000);
-        fileDats[4] = new FileDat("Random10000.dat", 10000);
-        fileDats[5] = new FileDat("Random100000.dat", 100000);
-        fileDats[6] = new FileDat("Teilsortiert1000.dat", 1000);
-        fileDats[7] = new FileDat("Teilsortiert10000.dat", 10000);
-        fileDats[8] = new FileDat("Teilsortiert100000.dat", 100000);
+        String[] filenames = new String[]{"InversTeilsortiert1000.dat","InversTeilsortiert10000.dat","InversTeilsortiert100000.dat","Random1000.dat","Random10000.dat","Random100000.dat","Teilsortiert1000.dat","Teilsortiert10000.dat","Teilsortiert100000.dat"};
+        int[] sizes = new int[]{1000,10000,100000,1000,10000,100000,1000,10000,100000};
+        for (int i = 0; i < 9; i++){
+            fileDats[i] = new FileDat(filenames[i],sizes[i]);
+        }
         createArray(option, choose, fileDats, arrayNames);
     }
     public void createArray(int option, int choose, FileDat[] fileDats, Vector<String> arrayNames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
