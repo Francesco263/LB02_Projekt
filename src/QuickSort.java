@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-class RandomQuickSort {
+class QuickSort {
 
     static void sort(int arr[], int low, int high) {
 
