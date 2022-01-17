@@ -70,7 +70,7 @@ public class Main {
     }
     public void chooseAlgorithm(Vector<String> arrayNames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         char algorithmSelection = ' ';
-        char[] alphabet = new char[]{'A','B','C','D','E','F','G','H','I','J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+        char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
         char[] selection = new char[arrayNames.size()];
         for (int i = 0; i < arrayNames.size(); i++){
             selection[i] = Character.toLowerCase(alphabet[i]);
@@ -142,7 +142,6 @@ public class Main {
             for (int y = 0; y < 9; y++){
                 int[] tempArray = arrays[y].getArray();
                 algorithms[i].sort(tempArray);
-                tempArray = null;
                 createExcel(algorithms[i].getTime(), algorithms[i].getComparison(), algorithms[i].getArrayAccess(), algorithms[i].getStorage());
             }
         }
