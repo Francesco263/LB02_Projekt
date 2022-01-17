@@ -29,12 +29,12 @@ public class QuickSort extends Algorithm{
         for (int i=0; i<n; ++i)
             System.out.print(arr[i] + " ");
         System.out.println();
-        System.out.println(time /  1_000_000_000.0 + " seconds");
+        //System.out.println(time /  1_000_000_000.0 + " seconds");
     }
 
     @Override
     public long getTime() {
-        return 0;
+        return time;
     }
 
     @Override
