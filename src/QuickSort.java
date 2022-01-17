@@ -1,17 +1,7 @@
 
 import java.util.*;
 
-class QuickSort {
-
-    static void sort(int arr[], int low, int high) {
-
-        Random rand = new Random();
-        int pivot = rand.nextInt(high - low) + low;
-
-        int index1 = arr[pivot];
-        arr[pivot] = arr[high];
-        arr[high] = index1;
-    }
+class QuickSort extends Algorithm{
 
     static int partition(int arr[], int low, int high) {
        sort(arr, low, high);
@@ -59,4 +49,36 @@ class QuickSort {
     }
 
 
+    @Override
+    public void sort(int[] array) {
+
+        int high = 0;
+        int low = 0;
+        Random rand = new Random();
+        int pivot = rand.nextInt(high - low) + low;
+
+        int index1 = array[pivot];
+        array[pivot] = array[high];
+        array[high] = index1;
+    }
+
+    @Override
+    public long getTime() {
+        return 0;
+    }
+
+    @Override
+    public int getComparison() {
+        return 0;
+    }
+
+    @Override
+    public int getArrayAccess() {
+        return 0;
+    }
+
+    @Override
+    public int getStorage() {
+        return 0;
+    }
 }
