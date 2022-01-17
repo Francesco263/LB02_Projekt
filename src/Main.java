@@ -140,7 +140,9 @@ public class Main {
     public void sortMain(int f, int valueF, ArrayDat[] arrays, Algorithm[] algorithms){
         for (int i = f; i < valueF; i++){
             for (int y = 0; y < 9; y++){
-                algorithms[i].sort(arrays[y].getArray());
+                int[] tempArray = arrays[y].getArray();
+                algorithms[i].sort(tempArray);
+                tempArray = null;
                 createExcel(algorithms[i].getTime(), algorithms[i].getComparison(), algorithms[i].getArrayAccess(), algorithms[i].getStorage());
             }
         }
