@@ -1,8 +1,13 @@
 public class QuickSort extends Algorithm{
 
+    private int time;
+    private int storage;
+    private int comparisons;
+    private int arrayAccess;
 
     @Override
     public void sort(int[] array) {
+        long start = System.nanoTime();
 
         int n = array.length;
         for (int i = 0; i < n-1; i++)
@@ -13,6 +18,8 @@ public class QuickSort extends Algorithm{
                     array[j] = array[j+1];
                     array[j+1] = temp;
                 }
+        long end = System.nanoTime();
+                time = (int) (end - start);
         printArray(array);
 
     }
@@ -22,6 +29,7 @@ public class QuickSort extends Algorithm{
         for (int i=0; i<n; ++i)
             System.out.print(arr[i] + " ");
         System.out.println();
+        System.out.println(time /  1_000_000_000.0 + " seconds");
     }
 
     @Override
