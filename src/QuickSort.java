@@ -1,4 +1,4 @@
-public class QuickSort extends Algorithm{
+public class QuickSort extends Algorithm {
 
     private int time;
     private int storage;
