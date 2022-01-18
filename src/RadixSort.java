@@ -12,16 +12,18 @@ public class RadixSort extends Algorithm {
 
     //Philip du Schwanz implementier das bitte richtig da une, danke.
     //Machi gu Gay
+    //Du Gottlosi verdammti Missgeburt, leck eier und mach de scheiss so das es eifach mis array nimmt und es sortiert sodass es gaht ohni durch 0 division exception oder irgendwelchi outofbounce scheisse.
 
     @Override
     public void sort(int[] array) {
-
+        int b = 1;
         int max = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] > max) {
                 max = array[i];
             }
         }
+        count(array, array.length, b);
     }
 
     public void count(int[] array, int lenght, int b) {
