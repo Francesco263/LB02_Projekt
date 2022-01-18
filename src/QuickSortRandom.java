@@ -10,6 +10,7 @@ public class QuickSortRandom extends Algorithm {
 
 
     @Override
+    //takes array from Interface Algorithm
     public void sort(int[] array) {
         _quickSort(array, 0, array.length - 1);
     }
@@ -23,15 +24,18 @@ public class QuickSortRandom extends Algorithm {
             _quickSort(array, split + 1, high);
         }
     }
+    //swaps the values given to the numbers, respectably value1 and value2
     private void swapValues(int[] array, int value1, int value2){
         int temp = array[value1];
         array[value1] = array[value2];
         array[value2] = temp;
     }
+    //picks a random pivot
     public int pivot(int low, int high){
         Random rand = new Random();
         return rand.nextInt((high - low) + 1) + low;
     }
+    //splits the array
     private int split(int[] array, int low, int high){
         swapValues(array, low, pivot(low, high));
         int border = low + 1;
@@ -43,6 +47,7 @@ public class QuickSortRandom extends Algorithm {
         swapValues(array, low, border - 1);
         return border - 1;
     }
+    //prints the array in sorted condition
     public void printArray(int[] array){
         QuickSortRandom quicksort = new QuickSortRandom();
         //System.out.println(Arrays.toString(array));
