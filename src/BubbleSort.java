@@ -1,3 +1,8 @@
+/**
+ * @author Philip Jovanovic
+ * @since 2021-01-17
+ * @version 1.0
+ */
 public class BubbleSort extends Algorithm{
 
     private int time;
