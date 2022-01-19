@@ -17,20 +17,17 @@ public class Main {
     public void Greetings() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         System.out.println("Welcome to our sorting program v.3.2.");
         System.out.println("_____________________________________");
-        LoadingScreen();
+        try {
+            Thread.sleep(1300);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         ClearCmd();
         chooseRunMethod();
     }
     public void ClearCmd(){
         for (int i = 0; i < 50; i++){
             System.out.println("");
-        }
-    }
-    public void LoadingScreen(){
-        try {
-            Thread.sleep(1300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
     public void chooseRunMethod() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
@@ -83,7 +80,6 @@ public class Main {
             algorithmSelection = einleser.readChar("> ", selection);
         }
         System.out.println("Please wait while the program is calculating...");
-        LoadingScreen();
         for (int i = 0; i < selection.length; i++){
             if (algorithmSelection == selection[i]){
                 initialize(2,(i+1), arrayNames);
