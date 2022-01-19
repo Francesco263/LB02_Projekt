@@ -7,6 +7,7 @@ public class SelectionSort extends Algorithm {
 
 
     @Override
+    //sorts the array
     public void sort(int[] array) {
 
         int number = array.length;
@@ -21,24 +22,22 @@ public class SelectionSort extends Algorithm {
             array[index_minimum] = array[i];
             array[i] = temp;
         }
+        printArray(array);
 
     }
-    public void printArray(int[] array){
+
+    //Prints the array
+    private void printArray(int[] array) {
         int number = array.length;
         for (int i = 0; i < number; i++) {
             System.out.println(array[i] + " ");
         }
         System.out.println();
     }
-    /*
-    public static void main(String[] args) {
-        SelectionSort selec = new SelectionSort();
-        int[] array = {64, 25, 12, 22, 11};
-        selec.sort(array);
-        System.out.println("Sorted Array: ");
-        selec.printArray(array);
-    }
-*/
+
+
+
+
     @Override
     public long getTime() {
         return 0;

@@ -50,7 +50,7 @@ public class QuickSortRandom extends Algorithm {
     //prints the array in sorted condition
     public void printArray(int[] array){
         QuickSortRandom quicksort = new QuickSortRandom();
-        //System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(array));
         quicksort.sort(array);
         System.out.println(Arrays.toString(array));
     }
