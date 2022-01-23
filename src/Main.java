@@ -19,7 +19,7 @@ public class Main {
         Greetings();
     }
     public void Greetings() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
-        System.out.println("Welcome to our sorting program v.3.2.");
+        System.out.println("Welcome to our sorting program v.3.3.");
         System.out.println("_____________________________________");
         try {
             Thread.sleep(1300);
@@ -131,30 +131,33 @@ public class Main {
         Algorithm[] algorithms = new Algorithm[arrayNames.size()];
         createAlgorithms(algorithms, arrayNames);
         if (option == 1){
-            sortMain(0,algorithms.length,arrays, algorithms);
+            sortMain(0,algorithms.length,arrays, algorithms, arrayNames);
         }
         else{
-            sortMain((choose - 1),choose,arrays, algorithms);
+            sortMain((choose - 1),choose,arrays, algorithms, arrayNames);
         }
     }
-    public void sortMain(int f, int valueF, ArrayDat[] arrays, Algorithm[] algorithms) throws IOException {
+    public void sortMain(int f, int valueF, ArrayDat[] arrays, Algorithm[] algorithms, Vector<String> arrayNames) throws IOException {
         String[] filenamesA = new String[]{"InversTeilsortiert1000.dat","InversTeilsortiert10000.dat","InversTeilsortiert100000.dat","Random1000.dat","Random10000.dat","Random100000.dat","Teilsortiert1000.dat","Teilsortiert10000.dat","Teilsortiert100000.dat"};
         XSSFWorkbook workbook = new XSSFWorkbook();
         for (int y = 0; y < 9; y++){
+            int u = 0;
             XSSFSheet sheet = workbook.createSheet(filenamesA[y]);
-            XSSFRow row = sheet.createRow(5);
-            row.createCell(5).setCellValue("Algorithmus Zeit: ");
-            row.createCell(6).setCellValue("Algorithmus Speicher: ");
-            row.createCell(7).setCellValue("Algorithmus Zugriffe: ");
-            row.createCell(8).setCellValue("Algorithmus Vergleiche: ");
+            XSSFRow row = sheet.createRow(0);
+            row.createCell(1).setCellValue("Zeit");
+            row.createCell(2).setCellValue("Speicher");
+            row.createCell(3).setCellValue("Zugriffe");
+            row.createCell(4).setCellValue("Vergleiche");
             for (int i = f; i < valueF; i++){
                 int[] tempArray = arrays[y].getArray();
                 algorithms[i].sort(tempArray);
-                XSSFRow row1 = sheet.createRow(i+1);
-                row1.createCell(5).setCellValue(algorithms[i].getTime());
-                row1.createCell(6).setCellValue(algorithms[i].getStorage());
-                row1.createCell(7).setCellValue(algorithms[i].getArrayAccess());
-                row1.createCell(8).setCellValue(algorithms[i].getComparison());
+                XSSFRow row1 = sheet.createRow(u+1);
+                row1.createCell(0).setCellValue(arrayNames.get(i));
+                row1.createCell(1).setCellValue(algorithms[i].getTime());
+                row1.createCell(2).setCellValue(algorithms[i].getStorage());
+                row1.createCell(3).setCellValue(algorithms[i].getArrayAccess());
+                row1.createCell(4).setCellValue(algorithms[i].getComparison());
+                u++;
             }
         }
         FileOutputStream excelOutput = new FileOutputStream("LB02_Projekt/output/excel_output.xlsx");
