@@ -167,6 +167,7 @@ public class Main {
         }
         FileOutputStream excelOutput = new FileOutputStream("LB02_Projekt/output/excel_output.xlsx");
         workbook.write(excelOutput);
+        System.out.println("Successfully finished. Output-file can be found in LB02_Projekt/output");
     }
     public Algorithm[] createAlgorithms(Algorithm[] algorithms, Vector<String> arrayNames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         for (int i = 0; i < arrayNames.size(); i++){
