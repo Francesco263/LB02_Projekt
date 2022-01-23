@@ -1,11 +1,23 @@
+/**
+ * @author Philip Jovanovic
+ * @since 2021-01-17
+ * @version 1.0
+ */
 public class MergeSort extends Algorithm {
     int left;
     int middle;
     int right;
 
+    private int time = 0;
+    private int storage = 0;
+    private int comparisons = 0;
+    private int arrayAccess = 0;
+
 
     @Override
     public void sort(int[] array) {
+        storage = 32 * array.length * 2 + 7 * 32;
+        long start = System.nanoTime();
         int number1 = middle - left + 1;
         int number2 = right - middle;
 
@@ -14,9 +26,11 @@ public class MergeSort extends Algorithm {
 
         for (int i = 0; i < number1; i++) {
             Left[i] = array[left + 1];
+            arrayAccess++;
         }
         for (int j = 0; j < number2; j++) {
             Right[j] = array[middle + 1 + j];
+            arrayAccess++;
         }
 
         int i = 0;
@@ -26,21 +40,26 @@ public class MergeSort extends Algorithm {
         while (i < number1 && j < number2){
             if (Left[i] <= Right[j]){
                 array[b] = Left[i];
+                arrayAccess++;
                 i++;
             }
             else {
                 array[b] = Right[j];
+                arrayAccess++;
                 j++;
             }
+            comparisons++;
             b++;
         }
         while (j < number2){
             array[b] = Right[j];
+            arrayAccess++;
             j++;
             b++;
         }
 
-
+        long end = System.nanoTime();
+        time = (int) (end - start);
 
     }
     public void _sort(int[] array, int left, int right){
@@ -51,44 +70,25 @@ public class MergeSort extends Algorithm {
             sort(array);
         }
     }
-    public static void printArray(int[] array){
-        int n = array.length;
-        for (int i = 0; i < n; i++) {
-            System.out.println(array[i] + " ");
 
-        }
-        System.out.println();
-    }
-
-    public static void main(String[] args) {
-        int array[] = {12, 11, 13, 5, 6 ,7};
-        System.out.println("Given Array; ");
-        printArray(array);
-
-        MergeSort ob = new MergeSort();
-        ob._sort(array, 0, array.length - 1);
-
-        System.out.println("\n Sorted Array");
-        printArray(array);
-    }
 
     @Override
     public long getTime() {
-        return 0;
+        return time;
     }
 
     @Override
     public int getComparison() {
-        return 0;
+        return comparisons;
     }
 
     @Override
     public int getArrayAccess() {
-        return 0;
+        return arrayAccess;
     }
 
     @Override
     public int getStorage() {
-        return 0;
+        return storage;
     }
 }

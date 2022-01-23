@@ -7,12 +7,21 @@ import java.util.Random;
  * @version 1.0
  */
 public class QuickSortRandom extends Algorithm {
+    private int time = 0;
+    private int storage = 0;
+    private int comparisons = 0;
+    private int arrayAccess = 0;
 
 
     @Override
     //takes array from Interface Algorithm
     public void sort(int[] array) {
+        int n = array.length;
+        storage = n * 32 + 5 * 32;
+        long start = System.nanoTime();
         _quickSort(array, 0, array.length - 1);
+        long end = System.nanoTime();
+        time = (int) (end - start);
     }
 
     // checks if more than 1 item is to be sorted, get new pivot value
@@ -26,6 +35,7 @@ public class QuickSortRandom extends Algorithm {
     }
     //swaps the values given to the numbers, respectably value1 and value2
     private void swapValues(int[] array, int value1, int value2){
+        arrayAccess += 3;
         int temp = array[value1];
         array[value1] = array[value2];
         array[value2] = temp;
@@ -41,19 +51,15 @@ public class QuickSortRandom extends Algorithm {
         int border = low + 1;
         for (int i = border; i <= high; i++){
             if (array[i] < array[low]){
+                comparisons++;
                 swapValues(array, i, border++);
             }
         }
         swapValues(array, low, border - 1);
         return border - 1;
+
     }
-    //prints the array in sorted condition
-    public void printArray(int[] array){
-        QuickSortRandom quicksort = new QuickSortRandom();
-        System.out.println(Arrays.toString(array));
-        quicksort.sort(array);
-        System.out.println(Arrays.toString(array));
-    }
+
 
 
 
@@ -64,21 +70,21 @@ public class QuickSortRandom extends Algorithm {
 
     @Override
     public long getTime() {
-        return 0;
+        return time;
     }
 
     @Override
     public int getComparison() {
-        return 0;
+        return comparisons;
     }
 
     @Override
     public int getArrayAccess() {
-        return 0;
+        return arrayAccess;
     }
 
     @Override
     public int getStorage() {
-        return 0;
+        return storage;
     }
 }

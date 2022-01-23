@@ -5,37 +5,38 @@
  */
 public class BubbleSort extends Algorithm{
 
-    private int time;
-    private int storage;
-    private int comparisons;
-    private int arrayAccess;
+    private int time = 0;
+    private int storage = 0;
+    private int comparisons = 0;
+    private int arrayAccess = 0;
 
     @Override
     public void sort(int[] array) {
+        int i;
+        int j = 0;
+        int temp;
+        int n = array.length;
+        boolean sorted;
+        sorted = true;
+        storage = n * 32 + 4 * 32 + 8;
         long start = System.nanoTime();
 
-        int n = array.length;
-        for (int i = 0; i < n-1; i++)
-            for (int j = 0; j < n-i-1; j++)
+        for (i = 0; i < n-1; i++)
+            for (j = 0; j < n-i-1; j++)
+                comparisons++;
                 if (array[j] > array[j+1])
                 {
-                    int temp = array[j];
+                    sorted = false;
+                    arrayAccess += 3;
+                    temp = array[j];
                     array[j] = array[j+1];
                     array[j+1] = temp;
                 }
         long end = System.nanoTime();
                 time = (int) (end - start);
-        printArray(array);
 
     }
-    public void printArray(int arr[])
-    {
-        int n = arr.length;
-        for (int i=0; i<n; ++i)
-            System.out.print(arr[i] + " ");
-        System.out.println();
-        //System.out.println(time /  1_000_000_000.0 + " seconds");
-    }
+
 
     @Override
     public long getTime() {
@@ -44,16 +45,16 @@ public class BubbleSort extends Algorithm{
 
     @Override
     public int getComparison() {
-        return 0;
+        return comparisons;
     }
 
     @Override
     public int getArrayAccess() {
-        return 0;
+        return arrayAccess;
     }
 
     @Override
     public int getStorage() {
-        return 0;
+        return storage;
     }
 }
