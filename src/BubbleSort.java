@@ -31,7 +31,9 @@ public class BubbleSort extends Algorithm{
                     temp = array[j];
                     array[j] = array[j+1];
                     array[j+1] = temp;
+
                 }
+
         long end = System.nanoTime();
                 time = (int) (end - start);
 
