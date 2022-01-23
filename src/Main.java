@@ -49,7 +49,7 @@ public class Main {
         String[] blacklist = new String[]{"Algorithm.java", "ArrayDat.java", "Einleser.java", "FileDat.java", "Main.java"};
         File folder = new File("LB02_Projekt/src");
         File[] files = folder.listFiles();
-        Vector<String> arrayNames = new Vector();
+        Vector<String> algorithmNames = new Vector();
         boolean blacklistFound;
         for (int i = 0; i < files.length; i++){
             blacklistFound = false;
@@ -58,54 +58,54 @@ public class Main {
                     blacklistFound = true;
                 }
             }
-            if (!blacklistFound && arrayNames.size() <= 26){
-                arrayNames.add(files[i].getName().substring(0, files[i].getName().length() - 5));
+            if (!blacklistFound && algorithmNames.size() <= 26){
+                algorithmNames.add(files[i].getName().substring(0, files[i].getName().length() - 5));
             }
         }
         if (runMethodSelection == 'a'){
-            initialize(1,0,arrayNames);
+            initialize(1,0,algorithmNames);
         }
         else{
-            chooseAlgorithm(arrayNames);
+            chooseAlgorithm(algorithmNames);
         }
     }
-    public void chooseAlgorithm(Vector<String> arrayNames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+    public void chooseAlgorithm(Vector<String> algorithmNames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
         char algorithmSelection = ' ';
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-        char[] selection = new char[arrayNames.size()];
-        for (int i = 0; i < arrayNames.size(); i++){
+        char[] selection = new char[algorithmNames.size()];
+        for (int i = 0; i < algorithmNames.size(); i++){
             selection[i] = Character.toLowerCase(alphabet[i]);
         }
         while (algorithmSelection == ' '){
             System.out.println("Available algorithms:\n");
-            for (int i = 0; i < arrayNames.size(); i++){
-                System.out.println("Press " + Character.toUpperCase(selection[i]) + " - " + arrayNames.get(i));
+            for (int i = 0; i < algorithmNames.size(); i++){
+                System.out.println("Press " + Character.toUpperCase(selection[i]) + " - " + algorithmNames.get(i));
             }
             algorithmSelection = einleser.readChar("> ", selection);
         }
         System.out.println("Please wait while the program is calculating...");
         for (int i = 0; i < selection.length; i++){
             if (algorithmSelection == selection[i]){
-                initialize(2,(i+1), arrayNames);
+                initialize(2,(i+1), algorithmNames);
             }
         }
     }
-    public void initialize(int option, int choose, Vector<String> arrayNames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+    public void initialize(int option, int choose, Vector<String> algorithmNames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
         FileDat[] fileDats = new FileDat[9];
         String[] filenames = new String[]{"InversTeilsortiert1000.dat","InversTeilsortiert10000.dat","InversTeilsortiert100000.dat","Random1000.dat","Random10000.dat","Random100000.dat","Teilsortiert1000.dat","Teilsortiert10000.dat","Teilsortiert100000.dat"};
         int[] sizes = new int[]{1000,10000,100000,1000,10000,100000,1000,10000,100000};
         for (int i = 0; i < 9; i++){
             fileDats[i] = new FileDat(filenames[i],sizes[i]);
         }
-        createArray(option, choose, fileDats, arrayNames, filenames);
+        createArray(option, choose, fileDats, algorithmNames, filenames);
     }
-    public void createArray(int option, int choose, FileDat[] fileDats, Vector<String> arrayNames, String[] filenames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+    public void createArray(int option, int choose, FileDat[] fileDats, Vector<String> algorithmNames, String[] filenames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
         ArrayDat[] arrays = new ArrayDat[9];
         for (int i = 0; i < 9; i++){
             ArrayDat array = new ArrayDat(arrayFiller(fileDats[i].getFileName(), fileDats[i].getFileSize()));
             arrays[i] = array;
         }
-        sortInitializer(option, choose, arrays, arrayNames, filenames);
+        sortInitializer(option, choose, arrays, algorithmNames, filenames);
     }
     public int[] arrayFiller(String filename, int filesize){
         int cntr = 0;
@@ -127,17 +127,17 @@ public class Main {
         }
         return array;
     }
-    public void sortInitializer(int option, int choose, ArrayDat[] arrays, Vector<String> arrayNames, String[] filenames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
-        Algorithm[] algorithms = new Algorithm[arrayNames.size()];
-        createAlgorithms(algorithms, arrayNames);
+    public void sortInitializer(int option, int choose, ArrayDat[] arrays, Vector<String> algorithmNames, String[] filenames) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+        Algorithm[] algorithms = new Algorithm[algorithmNames.size()];
+        createAlgorithms(algorithms, algorithmNames);
         if (option == 1){
-            sortMain(0,algorithms.length,arrays, algorithms, arrayNames, filenames);
+            sortMain(0,algorithms.length,arrays, algorithms, algorithmNames, filenames);
         }
         else{
-            sortMain((choose - 1),choose,arrays, algorithms, arrayNames, filenames);
+            sortMain((choose - 1),choose,arrays, algorithms, algorithmNames, filenames);
         }
     }
-    public void sortMain(int f, int valueF, ArrayDat[] arrays, Algorithm[] algorithms, Vector<String> arrayNames, String[] filenames) throws IOException {
+    public void sortMain(int f, int valueF, ArrayDat[] arrays, Algorithm[] algorithms, Vector<String> algorithmNames, String[] filenames) throws IOException {
         XSSFWorkbook workbook = new XSSFWorkbook();
         for (int y = 0; y < 9; y++){
             int u = 0;
@@ -151,7 +151,7 @@ public class Main {
                 int[] tempArray = arrays[y].getArray();
                 algorithms[i].sort(tempArray);
                 XSSFRow row1 = sheet.createRow(u+1);
-                row1.createCell(0).setCellValue(arrayNames.get(i));
+                row1.createCell(0).setCellValue(algorithmNames.get(i));
                 row1.createCell(1).setCellValue(algorithms[i].getTime());
                 row1.createCell(2).setCellValue(algorithms[i].getStorage());
                 row1.createCell(3).setCellValue(algorithms[i].getArrayAccess());
