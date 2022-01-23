@@ -4,11 +4,12 @@
  * @version 1.0
  */
 public class SelectionSort extends Algorithm {
-
+private int time;
 
     @Override
     //sorts the array
     public void sort(int[] array) {
+        long start = System.nanoTime();
 
         int number = array.length;
 
@@ -22,6 +23,8 @@ public class SelectionSort extends Algorithm {
             array[index_minimum] = array[i];
             array[i] = temp;
         }
+        long end = System.nanoTime();
+        time = (int) (end - start);
         printArray(array);
 
     }
