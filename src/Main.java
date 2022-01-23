@@ -5,6 +5,12 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+/**
+ * Main Methode (Kul) - LB02 Projekt
+ *
+ * @author Francesco Feroldi
+ * @version 3.3
+ */
 
 public class Main {
     Einleser einleser;
