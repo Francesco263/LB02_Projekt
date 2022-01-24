@@ -1,23 +1,32 @@
 import java.util.Arrays;
 
 /**
+ * This Class Sorts an Array with the Quick Sort Algorithm using the most left value as the pivot
+ * and returns the values to the Interface Algorithm.
  * @author Philip Jovanovic
  * @since 2021-01-18
- * @version 1.0
+ * @version 2.0
  */
 public class QuickSortLeft extends Algorithm {
+    /**
+     * Values are defined in order to count them and return them to Algorithm.java
+     */
     private int time = 0;
     private int storage = 0;
     private int comparisons = 0;
     private int arrayAccess = 0;
 
 
+    /**
+     *
+     * @param array
+     * Takes Array from Interface and defines left and right Position. Calls _quickSort Method.
+     */
     @Override
     public void sort(int[] array) {
 
         int n = array.length;
         storage = 32 + 4 * 32;
-        //Takes Array from Interface and defines left and right Position
         long start = System.nanoTime();
         _quickSort(array, 0, array.length - 1);
         long end = System.nanoTime();
@@ -25,7 +34,15 @@ public class QuickSortLeft extends Algorithm {
 
 
     }
-    //Sorts the Array
+
+    /**
+     *
+     * @param array
+     * @param left
+     * @param right
+     * This Method Sorts the array given in the sort() method. Then it swaps the values in the array and calls itself again.
+     * This is done until the Array is sorted.
+     */
 
     private void _quickSort(int[] array, int left, int right){
 
@@ -62,7 +79,13 @@ public class QuickSortLeft extends Algorithm {
 
 
     }
-    //swaps the numbers at the given values i and j
+
+    /**
+     * swaps the numbers at the given values i and j
+     * @param array
+     * @param i
+     * @param j
+     */
     private void swap(int[] array, int i, int j){
 
         if (i >= 0 && j >= 0 && i < array.length && j < array.length){
@@ -80,21 +103,40 @@ public class QuickSortLeft extends Algorithm {
 
 
 
+    /**
+     * The value time evaluates the time, that is taken, in order to sort the array.
+     * The value in time is then returned through the method getTime to its superclass Algorithm.
+     */
     @Override
     public long getTime() {
         return time;
     }
 
+    /**
+     *
+     * @return
+     * The comparisons that the Algorithm made in the array, for example is 1 > 2.
+     */
     @Override
     public int getComparison() {
         return comparisons;
     }
 
+    /**
+     *
+     * @return
+     * The times the array was accessed through the Methods
+     */
     @Override
     public int getArrayAccess() {
         return arrayAccess;
     }
 
+    /**
+     *
+     * @return
+     * The amount of storage that has been used for this algorithm.
+     */
     @Override
     public int getStorage() {
         return storage;

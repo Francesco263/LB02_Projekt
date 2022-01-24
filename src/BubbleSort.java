@@ -1,15 +1,25 @@
 /**
+ * This Class Sorts an Array with the Bubble Sort Algorithm and returns the values to the Interface Algorithm
  * @author Philip Jovanovic
  * @since 2021-01-17
- * @version 1.0
+ * @version 2.0
  */
 public class BubbleSort extends Algorithm{
 
+    /**
+     * Values are defined in order to count them and return them to Algorithm.java
+     */
     private int time = 0;
     private int storage = 0;
     private int comparisons = 0;
     private static int arrayAccess = 0;
 
+    /**
+     * @param array
+     * Method sort goes through the array given from its superclass and
+     * iterates through it and swaps the position until the array is sorted,
+     * this is done by the BubbleSort Algorithm.
+     */
     @Override
     public void sort(int[] array) {
         int i;
@@ -35,6 +45,7 @@ public class BubbleSort extends Algorithm{
 
         }
 
+
         long end = System.nanoTime();
         time = (int) (end - start);
 
@@ -43,21 +54,40 @@ public class BubbleSort extends Algorithm{
 
 
 
+    /**
+     * The value time evaluates the time, that is taken, in order to sort the array.
+     * The value in time is then returned through the method getTime to its superclass Algorithm.
+     */
     @Override
     public long getTime() {
         return time;
     }
 
+    /**
+     *
+     * @return
+     * The comparisons that the Algorithm made in the array, for example is 1 > 2.
+     */
     @Override
     public int getComparison() {
         return comparisons;
     }
 
+    /**
+     *
+     * @return
+     * The times the array was accessed through the Methods
+     */
     @Override
     public int getArrayAccess() {
         return arrayAccess;
     }
 
+    /**
+     *
+     * @return
+     * The amount of storage that has been used for this algorithm.
+     */
     @Override
     public int getStorage() {
         return storage;
