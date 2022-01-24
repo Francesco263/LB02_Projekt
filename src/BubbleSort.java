@@ -8,7 +8,7 @@ public class BubbleSort extends Algorithm{
     private int time = 0;
     private int storage = 0;
     private int comparisons = 0;
-    private int arrayAccess = 0;
+    private static int arrayAccess = 0;
 
     @Override
     public void sort(int[] array) {
@@ -21,25 +21,26 @@ public class BubbleSort extends Algorithm{
         storage = n * 32 + 4 * 32 + 8;
         long start = System.nanoTime();
 
-        for (i = 0; i < n-1; i++)
-            for (j = 0; j < n-i-1; j++)
+        for (i = 0; i < n-1; i++){
+            for (j = 0; j < n-i-1; j++) {
                 comparisons++;
-                if (array[j] > array[j+1])
-                {
+                if (array[j] > array[j + 1]) {
                     sorted = false;
-                    arrayAccess++;
-                    arrayAccess++;
-                    arrayAccess++;
+                    arrayAccess += 2;
                     temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
-
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
+            }
+
+        }
 
         long end = System.nanoTime();
-                time = (int) (end - start);
+        time = (int) (end - start);
 
     }
+
+
 
 
     @Override
