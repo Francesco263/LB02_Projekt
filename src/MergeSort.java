@@ -1,4 +1,6 @@
 /**
+ * Uses the MergeSort Algorithm in order to Sort an array of numbers
+ * This class gives the values back to Algorithm.java with return methods defined at the end of the Program
  * @author Philip Jovanovic
  * @since 2021-01-17
  * @version 1.0
@@ -76,7 +78,12 @@ public class MergeSort extends Algorithm {
         }
     }
 
-
+    /**
+     *
+     * @return
+     * the Values to Algorithm, so it can be displayed when running the main method
+     * those values return the time (duration), the comparisons between numbers, the array accesses and the storage needed for the algorithm.
+     */
     @Override
     public long getTime() {
         return time;
