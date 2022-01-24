@@ -12,23 +12,21 @@ public class InsertionSort extends Algorithm {
 
     @Override
     public void sort(int[] array) {
-        storage = 32 + 3 * 32;
+        storage = 32 * array.length + 32 * 3;
         long start = System.nanoTime();
 
         int lenght = array.length;
         for (int i = 1; i < lenght; i++) {
+            storage += 32;
             int index = array[i];
             arrayAccess++;
             int j = array[i];
-            while ((j > -1) && (array[j] > index)){
-                array[j + 1] = array[j];
+            for (j = 1 - 1; (j >= 0) && (index < array[j]) ; j--) {
                 arrayAccess++;
-                j--;
+                array[j + 1] = array[j];
             }
-            comparisons += 3;
-            array[j + 1] = index;
             arrayAccess++;
-
+            array[j + 1] = index;
         }
         long end = System.nanoTime();
         time = (int) (end - start);
