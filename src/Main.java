@@ -107,7 +107,6 @@ public class Main {
         try {
             File folder = new File("src/");
             File[] files = folder.listFiles();
-            File temp = files[0];
             scanFiles(runMethodSelection, files);
         }
         catch (Exception e) {
@@ -229,14 +228,13 @@ public class Main {
         int cntr = 0;
         int[] array = new int[filesize];
         BufferedReader br = null;
-        File file = null;
-        FileReader fr = null;
+        FileReader fr;
         try{
-            file = new File("files/" + filename);
+            File file = new File("files/" + filename);
             fr = new FileReader(file);
         }
         catch(Exception e){
-            file = new File("LB02_Projekt/files/" + filename);
+            File file = new File("LB02_Projekt/files/" + filename);
             fr = new FileReader(file);
         }
         try {
