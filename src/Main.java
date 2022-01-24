@@ -1,5 +1,6 @@
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.FileSystemException;
 import java.util.Vector;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -81,7 +82,7 @@ public class Main {
         prepareArrayFileNames(runMethodSelection);
     }
     /**
-     * This method is used to scan the directory for available algorithms and save them without ".java" in algorithmNames Vector.
+     * prepareArrayFileNames and scanFiles are used to scan the directory for available algorithms and save them without ".java" in algorithmNames Vector.
      * Before filling the Vector, the filename will be compared with the blacklist array, so the other program methods can not
      * cause any problems.
      * If the user clicked on choose algorithm, the Vector and choose option will be sent to chooseAlgorithm(). Else, the chooseAlgorithm()
@@ -97,9 +98,20 @@ public class Main {
      * @throws IOException
      */
     public void prepareArrayFileNames(char runMethodSelection) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+        try {
+            File folder = new File("src/");
+            File[] files = folder.listFiles();
+            File temp = files[0];
+            scanFiles(runMethodSelection, files);
+        }
+        catch (Exception e) {
+            File folder = new File("LB02_Projekt/src");
+            File[] files = folder.listFiles();
+            scanFiles(runMethodSelection, files);
+        }
+    }
+    public void scanFiles(char runMethodSelection, File[] files) throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         String[] blacklist = new String[]{"Algorithm.java", "ArrayDat.java", "Einleser.java", "FileDat.java", "Main.java"};
-        File folder = new File("LB02_Projekt/src");
-        File[] files = folder.listFiles();
         Vector<String> algorithmNames = new Vector();
         boolean blacklistFound;
         for (int i = 0; i < files.length; i++){
