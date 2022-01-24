@@ -27,7 +27,9 @@ public class BubbleSort extends Algorithm{
                 if (array[j] > array[j+1])
                 {
                     sorted = false;
-                    arrayAccess += 3;
+                    arrayAccess++;
+                    arrayAccess++;
+                    arrayAccess++;
                     temp = array[j];
                     array[j] = array[j+1];
                     array[j+1] = temp;

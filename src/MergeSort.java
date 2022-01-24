@@ -8,6 +8,8 @@ public class MergeSort extends Algorithm {
     int middle;
     int right;
 
+    //TODO comparisons and array access in mergesort and arrayaccess in bubblesort
+
     private int time = 0;
     private int storage = 0;
     private int comparisons = 0;
@@ -25,12 +27,14 @@ public class MergeSort extends Algorithm {
         int[] Right = new int[number2];
 
         for (int i = 0; i < number1; i++) {
-            Left[i] = array[left + 1];
             arrayAccess++;
+            Left[i] = array[left + 1];
+
         }
         for (int j = 0; j < number2; j++) {
-            Right[j] = array[middle + 1 + j];
             arrayAccess++;
+            Right[j] = array[middle + 1 + j];
+
         }
 
         int i = 0;
