@@ -78,7 +78,6 @@ public class Main {
             System.out.println("Press B - choose algorithm");
             runMethodSelection = einleser.readChar("> ", new char[]{'a','b'});
         }
-        ClearCmd();
         prepareArrayFileNames(runMethodSelection);
     }
     /**
@@ -218,20 +217,30 @@ public class Main {
      * @param filesize
      * @return
      */
-    public int[] arrayFiller(String filename, int filesize){
+    public int[] arrayFiller(String filename, int filesize) throws FileNotFoundException {
         int cntr = 0;
         int[] array = new int[filesize];
         BufferedReader br = null;
+        File file = null;
+        FileReader fr = null;
+        try{
+            file = new File("files/" + filename);
+            fr = new FileReader(file);
+        }
+        catch(Exception e){
+            file = new File("LB02_Projekt/files/" + filename);
+            fr = new FileReader(file);
+        }
         try {
-            File file = new File("LB02_Projekt/files/" + filename);
-            FileReader fr = new FileReader(file);
             br = new BufferedReader(fr);
             String line;
             while ((line = br.readLine()) != null) {
                 array[cntr++] = Integer.parseInt(line);
             }
         }
-        catch(IOException e) { e.printStackTrace();}
+        catch(IOException e) {
+            e.printStackTrace();
+        }
         finally {
             try { if (br != null) br.close(); }
             catch(IOException e) { e.printStackTrace(); }
@@ -301,8 +310,14 @@ public class Main {
                 u++;
             }
         }
-        FileOutputStream excelOutput = new FileOutputStream("LB02_Projekt/output/excel_output.xlsx");
-        workbook.write(excelOutput);
+        try{
+            FileOutputStream excelOutput = new FileOutputStream("output/excel_output.xlsx");
+            workbook.write(excelOutput);
+        }
+        catch (Exception e){
+            FileOutputStream excelOutput = new FileOutputStream("LB02_Projekt/output/excel_output.xlsx");
+            workbook.write(excelOutput);
+        }
         ClearCmd();
         System.out.println("Successfully finished. Output-file can be found in LB02_Projekt/output");
     }
