@@ -5,6 +5,7 @@
  */
 public class InsertionSort extends Algorithm {
 
+    //Variables that are returned to interface Algorithm
     private int time = 0;
     private int storage = 0;
     private int comparisons = 0;
