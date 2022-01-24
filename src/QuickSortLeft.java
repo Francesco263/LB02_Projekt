@@ -14,7 +14,7 @@ public class QuickSortLeft extends Algorithm {
 
     @Override
     public void sort(int[] array) {
-        /*
+
         int n = array.length;
         storage = 32 + 4 * 32;
         //Takes Array from Interface and defines left and right Position
@@ -23,12 +23,12 @@ public class QuickSortLeft extends Algorithm {
         long end = System.nanoTime();
         time = (int) (end - start);
 
-         */
+
     }
     //Sorts the Array
 
     private void _quickSort(int[] array, int left, int right){
-        /*
+
 
         if (left < right){
             //Selects the pivot at the most left position in array
@@ -60,11 +60,11 @@ public class QuickSortLeft extends Algorithm {
 
         }
 
-         */
+
     }
     //swaps the numbers at the given values i and j
     private void swap(int[] array, int i, int j){
-        /*
+
         if (i >= 0 && j >= 0 && i < array.length && j < array.length){
             arrayAccess += 3;
             int temp = array[i];
@@ -72,7 +72,7 @@ public class QuickSortLeft extends Algorithm {
             array[j] = temp;
         }
 
-         */
+
     }
 
 

@@ -39,6 +39,7 @@ public class MergeSort extends Algorithm {
         int b = left;
         while (i < number1 && j < number2){
             if (Left[i] <= Right[j]){
+                comparisons++;
                 array[b] = Left[i];
                 arrayAccess++;
                 i++;
@@ -48,7 +49,7 @@ public class MergeSort extends Algorithm {
                 arrayAccess++;
                 j++;
             }
-            comparisons++;
+
             b++;
         }
         while (j < number2){

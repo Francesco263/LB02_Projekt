@@ -4,22 +4,29 @@
  * @version 1.0
  */
 public class SelectionSort extends Algorithm {
-private int time;
+    private int time = 0;
+    private int storage = 0;
+    private int comparisons = 0;
+    private int arrayAccess = 0;
 
     @Override
     //sorts the array
     public void sort(int[] array) {
+        int number = array.length;
+
+        storage = number * 32 + 5 * 32;
         long start = System.nanoTime();
 
-        int number = array.length;
 
         for (int i = 0; i < number - 1; i++) {
             int index_minimum = i;
             for (int j = i + 1; j < number; j++) {
+                comparisons++;
                 if (array[j] < array[index_minimum])
                     index_minimum = j;
             }
             int temp = array[index_minimum];
+            arrayAccess += 2;
             array[index_minimum] = array[i];
             array[i] = temp;
         }
@@ -33,21 +40,21 @@ private int time;
 
     @Override
     public long getTime() {
-        return 0;
+        return time;
     }
 
     @Override
     public int getComparison() {
-        return 0;
+        return comparisons;
     }
 
     @Override
     public int getArrayAccess() {
-        return 0;
+        return arrayAccess;
     }
 
     @Override
     public int getStorage() {
-        return 0;
+        return storage;
     }
 }
