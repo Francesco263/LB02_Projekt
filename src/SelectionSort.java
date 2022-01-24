@@ -25,17 +25,7 @@ private int time;
         }
         long end = System.nanoTime();
         time = (int) (end - start);
-        printArray(array);
 
-    }
-
-    //Prints the array
-    private void printArray(int[] array) {
-        int number = array.length;
-        for (int i = 0; i < number; i++) {
-            System.out.println(array[i] + " ");
-        }
-        System.out.println();
     }
 
 
