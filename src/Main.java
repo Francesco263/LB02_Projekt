@@ -6,8 +6,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
  * Main Methode (Kul) - LB02 Projekt
- *
  * @author Francesco Feroldi
+ * @since 2021-01-24
  * @version 3.3
  */
 public class Main {
