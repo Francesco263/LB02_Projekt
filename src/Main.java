@@ -9,7 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * Main Methode (Kul) - LB02 Projekt
  * @author Francesco Feroldi
  * @since 2021-01-24
- * @version 3.3
+ * @version 3.4
  */
 public class Main {
     Einleser einleser;
@@ -42,7 +42,7 @@ public class Main {
      * @throws IOException
      */
     public void Greetings() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
-        System.out.println("Welcome to our sorting program v.3.3.");
+        System.out.println("Welcome to our sorting program v.3.4.");
         System.out.println("_____________________________________");
         try {
             Thread.sleep(1300);
@@ -77,6 +77,13 @@ public class Main {
             System.out.println("Press A - run everything");
             System.out.println("Press B - choose algorithm");
             runMethodSelection = einleser.readChar("> ", new char[]{'a','b'});
+        }
+        if (runMethodSelection == 'a'){
+            ClearCmd();
+            System.out.println("Please wait while the program is calculating...");
+        }
+        else{
+            ClearCmd();
         }
         prepareArrayFileNames(runMethodSelection);
     }
@@ -157,6 +164,7 @@ public class Main {
             }
             algorithmSelection = einleser.readChar("> ", selection);
         }
+        ClearCmd();
         System.out.println("Please wait while the program is calculating...");
         for (int i = 0; i < selection.length; i++){
             if (algorithmSelection == selection[i]){
