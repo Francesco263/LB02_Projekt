@@ -313,7 +313,7 @@ public class Main {
      * fills the array of algorithm objects with the return value of createAlgorithmFromString().
      * @param algorithms
      * @param algorithmNames
-     * @return
+     * @return Instance of Algorithm
      * @throws ClassNotFoundException
      * @throws InvocationTargetException
      * @throws NoSuchMethodException
@@ -329,7 +329,7 @@ public class Main {
     /**
      * This method creates an instance of an algorithm based on a given string.
      * @param name
-     * @return
+     * @return Instance of Algorithm
      * @throws NoSuchMethodException
      * @throws InvocationTargetException
      * @throws InstantiationException
