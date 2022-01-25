@@ -306,7 +306,7 @@ public class Main {
         FileOutputStream excelOutput = new FileOutputStream("output/excel_output.xlsx");
         workbook.write(excelOutput);
         ClearCmd();
-        System.out.println("Successfully finished. Output-file can be found in LB02_Projekt/output");
+        System.out.println("Successfully finished. Output-file can be found in output/");
     }
     /**
      * createAlgorithms() is used to iterate in algorithmNames and call the method createAlgorithmFromString(). It then
