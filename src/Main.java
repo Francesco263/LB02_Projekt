@@ -43,7 +43,7 @@ public class Main {
      */
     public void Greetings() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
         System.out.println("Welcome to our sorting program v.3.4.1");
-        System.out.println("_____________________________________");
+        System.out.println("______________________________________");
         try {
             Thread.sleep(1300);
         } catch (InterruptedException e) {
@@ -160,7 +160,7 @@ public class Main {
         System.out.println("Please wait while the program is calculating...");
         for (int i = 0; i < selection.length; i++){
             if (algorithmSelection == selection[i]){
-                initialize(2,(i+1), algorithmNames);
+                initialize(2,i, algorithmNames);
             }
         }
     }
@@ -266,7 +266,7 @@ public class Main {
             sortMain(0,algorithms.length,arrays, algorithms, algorithmNames, filenames);
         }
         else{
-            sortMain((choose - 1),choose,arrays, algorithms, algorithmNames, filenames);
+            sortMain(choose,(choose+1),arrays, algorithms, algorithmNames, filenames);
         }
     }
     /**
