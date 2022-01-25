@@ -6,7 +6,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
- * Main Methode (Kul) - LB02 Projekt
+ * Main Methode (KuI) - LB02 Projekt
  * @author Francesco Feroldi
  * @since 2021-01-24
  * @version 3.4
@@ -109,7 +109,7 @@ public class Main {
         scanFiles(runMethodSelection, files);
     }
     public void scanFiles(char runMethodSelection, File[] files) throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        String[] blacklist = new String[]{"Algorithm.java", "ArrayDat.java", "Einleser.java", "FileDat.java", "Main.java"};
+        String[] blacklist = new String[]{"Algorithm.java", "ArrayDat.java", "Einleser.java", "FileDat.java", "Main.java", "log4j2.xml"};
         Vector<String> algorithmNames = new Vector();
         boolean blacklistFound;
         for (int i = 0; i < files.length; i++){
