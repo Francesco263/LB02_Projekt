@@ -29,6 +29,7 @@ public class CocktailSort extends Algorithm {
         int end = array.length;
 
         while (swap == true){
+            arrayAccess += 6;
             swap = false;
             for (int i = beginning; i < end - 1; i++) {
                 comparisons++;
@@ -48,7 +49,6 @@ public class CocktailSort extends Algorithm {
             for (int i = end - 1; i >= beginning; i--) {
                 comparisons++;
                 if (array[i] > array[i + 1]){
-                    arrayAccess += 6;
                     int temp = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = temp;
