@@ -6,10 +6,10 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
- * Main Methode (Kul) - LB02 Projekt
+ * Main-Method (KuI) - LB02 Projekt
  * @author Francesco Feroldi
  * @since 2021-01-24
- * @version 3.4
+ * @version 3.4.1
  */
 public class Main {
     Einleser einleser;
@@ -42,7 +42,7 @@ public class Main {
      * @throws IOException
      */
     public void Greetings() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
-        System.out.println("Welcome to our sorting program v.3.4.");
+        System.out.println("Welcome to our sorting program v.3.4.1");
         System.out.println("_____________________________________");
         try {
             Thread.sleep(1300);
@@ -104,19 +104,12 @@ public class Main {
      * @throws IOException
      */
     public void prepareArrayFileNames(char runMethodSelection) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
-        try {
-            File folder = new File("src/");
-            File[] files = folder.listFiles();
-            scanFiles(runMethodSelection, files);
-        }
-        catch (Exception e) {
-            File folder = new File("LB02_Projekt/src");
-            File[] files = folder.listFiles();
-            scanFiles(runMethodSelection, files);
-        }
+        File folder = new File("src/");
+        File[] files = folder.listFiles();
+        scanFiles(runMethodSelection, files);
     }
     public void scanFiles(char runMethodSelection, File[] files) throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        String[] blacklist = new String[]{"Algorithm.java", "ArrayDat.java", "Einleser.java", "FileDat.java", "Main.java"};
+        String[] blacklist = new String[]{"Algorithm.java", "ArrayDat.java", "Einleser.java", "FileDat.java", "Main.java", "log4j2.xml"};
         Vector<String> algorithmNames = new Vector();
         boolean blacklistFound;
         for (int i = 0; i < files.length; i++){
@@ -229,15 +222,9 @@ public class Main {
         int[] array = new int[filesize];
         BufferedReader br = null;
         FileReader fr;
-        try{
+        try {
             File file = new File("files/" + filename);
             fr = new FileReader(file);
-        }
-        catch(Exception e){
-            File file = new File("LB02_Projekt/files/" + filename);
-            fr = new FileReader(file);
-        }
-        try {
             br = new BufferedReader(fr);
             String line;
             while ((line = br.readLine()) != null) {
@@ -316,14 +303,8 @@ public class Main {
                 u++;
             }
         }
-        try{
-            FileOutputStream excelOutput = new FileOutputStream("output/excel_output.xlsx");
-            workbook.write(excelOutput);
-        }
-        catch (Exception e){
-            FileOutputStream excelOutput = new FileOutputStream("LB02_Projekt/output/excel_output.xlsx");
-            workbook.write(excelOutput);
-        }
+        FileOutputStream excelOutput = new FileOutputStream("output/excel_output.xlsx");
+        workbook.write(excelOutput);
         ClearCmd();
         System.out.println("Successfully finished. Output-file can be found in LB02_Projekt/output");
     }
@@ -332,7 +313,7 @@ public class Main {
      * fills the array of algorithm objects with the return value of createAlgorithmFromString().
      * @param algorithms
      * @param algorithmNames
-     * @return
+     * @return Instance of Algorithm
      * @throws ClassNotFoundException
      * @throws InvocationTargetException
      * @throws NoSuchMethodException
@@ -348,7 +329,7 @@ public class Main {
     /**
      * This method creates an instance of an algorithm based on a given string.
      * @param name
-     * @return
+     * @return Instance of Algorithm
      * @throws NoSuchMethodException
      * @throws InvocationTargetException
      * @throws InstantiationException

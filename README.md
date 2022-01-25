@@ -12,5 +12,8 @@ Diese Program vergleicht Algorithmen basierend auf:
  - Array-Zugriffe
    
 Anmerkungen:
- - Um Algorithmen hinzuzufügen, ziehen Sie die java Datei [in diesen Ordner](src).
+ - Um Algorithmen hinzuzufügen, ziehen Sie die java Datei [in diesen Ordner](src). Bitte beachten Sie, dass die 
+   java Datei die Methoden des "Algorithm.java" Interfaces implementieren muss.
+   
+ - Nach der erfolgreichen Ausführung finden Sie die Excel Datei mit den entsprechenden Auswertungen [in diesem Ordner](output). 
 
