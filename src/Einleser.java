@@ -15,8 +15,8 @@ public class Einleser {
         }
         if (err == null) {
             err = options == null ?
-                "Please enter a valid character, please try again > " :
-                "This option is not available, please try again > ";
+                "Please enter a valid character > " :
+                "Please enter a valid character from the list > ";
         }
         char ch;
         if (options != null) {

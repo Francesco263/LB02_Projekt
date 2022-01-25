@@ -6,10 +6,10 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
- * Main Methode (KuI) - LB02 Projekt
+ * Main-Method (KuI) - LB02 Projekt
  * @author Francesco Feroldi
  * @since 2021-01-24
- * @version 3.4
+ * @version 3.4.1
  */
 public class Main {
     Einleser einleser;
@@ -42,7 +42,7 @@ public class Main {
      * @throws IOException
      */
     public void Greetings() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
-        System.out.println("Welcome to our sorting program v.3.4.");
+        System.out.println("Welcome to our sorting program v.3.4.1");
         System.out.println("_____________________________________");
         try {
             Thread.sleep(1300);
