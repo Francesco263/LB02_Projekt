@@ -104,16 +104,9 @@ public class Main {
      * @throws IOException
      */
     public void prepareArrayFileNames(char runMethodSelection) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
-        try {
-            File folder = new File("src/");
-            File[] files = folder.listFiles();
-            scanFiles(runMethodSelection, files);
-        }
-        catch (Exception e) {
-            File folder = new File("LB02_Projekt/src");
-            File[] files = folder.listFiles();
-            scanFiles(runMethodSelection, files);
-        }
+        File folder = new File("src/");
+        File[] files = folder.listFiles();
+        scanFiles(runMethodSelection, files);
     }
     public void scanFiles(char runMethodSelection, File[] files) throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         String[] blacklist = new String[]{"Algorithm.java", "ArrayDat.java", "Einleser.java", "FileDat.java", "Main.java"};
@@ -229,15 +222,9 @@ public class Main {
         int[] array = new int[filesize];
         BufferedReader br = null;
         FileReader fr;
-        try{
+        try {
             File file = new File("files/" + filename);
             fr = new FileReader(file);
-        }
-        catch(Exception e){
-            File file = new File("LB02_Projekt/files/" + filename);
-            fr = new FileReader(file);
-        }
-        try {
             br = new BufferedReader(fr);
             String line;
             while ((line = br.readLine()) != null) {
@@ -316,14 +303,8 @@ public class Main {
                 u++;
             }
         }
-        try{
-            FileOutputStream excelOutput = new FileOutputStream("output/excel_output.xlsx");
-            workbook.write(excelOutput);
-        }
-        catch (Exception e){
-            FileOutputStream excelOutput = new FileOutputStream("LB02_Projekt/output/excel_output.xlsx");
-            workbook.write(excelOutput);
-        }
+        FileOutputStream excelOutput = new FileOutputStream("output/excel_output.xlsx");
+        workbook.write(excelOutput);
         ClearCmd();
         System.out.println("Successfully finished. Output-file can be found in LB02_Projekt/output");
     }
