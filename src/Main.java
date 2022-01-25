@@ -29,8 +29,9 @@ public class Main {
      * @throws IllegalAccessException
      * @throws IOException
      */
-    private void run() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+    private void run() throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         Greetings();
+        prepareArrayFileNames(chooseRunMethod());
     }
     /**
      * Greetings() Method is used to welcome the user
@@ -41,7 +42,7 @@ public class Main {
      * @throws IllegalAccessException
      * @throws IOException
      */
-    public void Greetings() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+    public void Greetings(){
         System.out.println("Welcome to our sorting program v.3.4.1");
         System.out.println("______________________________________");
         try {
@@ -50,7 +51,6 @@ public class Main {
             e.printStackTrace();
         }
         ClearCmd();
-        chooseRunMethod();
     }
     /**
      * ClearCmd() clears the cmd
@@ -70,7 +70,7 @@ public class Main {
      * @throws IllegalAccessException
      * @throws IOException
      */
-    public void chooseRunMethod() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+    public char chooseRunMethod() {
         char runMethodSelection = ' ';
         System.out.println("Choose an option:\n");
         while (runMethodSelection == ' '){
@@ -85,7 +85,7 @@ public class Main {
         else{
             ClearCmd();
         }
-        prepareArrayFileNames(runMethodSelection);
+        return runMethodSelection;
     }
     /**
      * prepareArrayFileNames and scanFiles are used to scan the directory for available algorithms and save them without ".java" in algorithmNames Vector.
