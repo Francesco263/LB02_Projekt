@@ -1,7 +1,7 @@
 /**
  * @author Francesco Feroldi
  * @version 1.0
- * @since 2021-01-24
+ * @since 2021-01-26
  */
 public class FileDat {
     private String fileName;

@@ -11,7 +11,7 @@ import java.util.Vector;
  *
  * @author Francesco Feroldi
  * @version 3.4.1
- * @since 2021-01-24
+ * @since 2021-01-26
  */
 public class Main {
     Einleser einleser;
@@ -26,7 +26,7 @@ public class Main {
     }
 
     /**
-     * This is the run-method, calls Greetings() to start the program
+     * This is the run-method, calls Greetings() to start the program.
      *
      * @throws ClassNotFoundException
      * @throws InvocationTargetException
@@ -41,7 +41,7 @@ public class Main {
     }
 
     /**
-     * Greetings() Method is used to welcome the user
+     * Greetings() Method is used to welcome the user.
      *
      * @throws ClassNotFoundException
      * @throws InvocationTargetException
@@ -62,7 +62,7 @@ public class Main {
     }
 
     /**
-     * ClearCmd() clears the cmd
+     * ClearCmd() clears the cmd.
      */
     public void ClearCmd() {
         for (int i = 0; i < 25; i++) {
@@ -72,7 +72,7 @@ public class Main {
 
     /**
      * This method is used to ask the user if he wants to run everything or choose an algorithm. The output value
-     * will be given with the method prepareArrayFiller.
+     * will be given with the method prepareArrayFiller().
      *
      * @throws ClassNotFoundException
      * @throws InvocationTargetException
@@ -99,11 +99,11 @@ public class Main {
     }
 
     /**
-     * prepareArrayFileNames and scanFiles are used to scan the directory for available algorithms and save them without ".java" in algorithmNames Vector.
-     * Before filling the Vector, the filename will be compared with the blacklist array, so the other program methods can not
+     * PrepareArrayFileNames() and scanFiles() are used to scan the directory for available algorithms and save them without ".java" in algorithmNames vector.
+     * Before filling the vector, the filename will be compared with the blacklist array, so that the other program methods can not
      * cause any problems.
-     * If the user clicked on choose algorithm, the Vector and choose option will be sent to chooseAlgorithm(). Else, the chooseAlgorithm()
-     * method will be skipped. initialize() will be called instead.
+     * If the user clicked on choose algorithm, the vector and choose option will be sent to chooseAlgorithm(). Else, the chooseAlgorithm()
+     * method will be skipped. Initialize() will be called instead.
      * Based on what the user clicks, option and choose will be initialized. They will be used at the end of the program to
      * know what to sort.
      *
@@ -120,7 +120,6 @@ public class Main {
         File[] files = folder.listFiles();
         scanFiles(runMethodSelection, files);
     }
-
     public void scanFiles(char runMethodSelection, File[] files) throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         String[] blacklist = new String[]{"Algorithm.java", "ArrayDat.java", "Einleser.java", "FileDat.java", "Main.java", "log4j2.xml"};
         Vector<String> algorithmNames = new Vector();
@@ -264,10 +263,10 @@ public class Main {
 
     /**
      * createArray() method will call sortInitializer(). It gives option and choose to later determine what the user clicked on.
-     * ArrayDat arrays is an array filled with all values of all files. algorithmNames is a Vector filled with the scanned algorithms
-     * in the source root. filenames will be given to later name the excel sheets.
-     * Based on the algorithms found and the Vector with names, sortInitializer() creates an array of algorithm objects, using the
-     * method createAlgorithms(). Then it validates the user input of before and based on that sends to sortMain what is needed
+     * ArrayDat arrays is an array filled with all values of all files. algorithmNames is a vector filled with the scanned algorithms
+     * in the src directory. filenames will be given to later name the excel sheets.
+     * Based on the algorithms found and the vector with names, sortInitializer() creates an array of algorithm objects, using the
+     * method createAlgorithms(). Then it validates the user input of before and based on that sends to sortMain() what is needed
      * to sort the right algorithms.
      *
      * @param option
@@ -293,9 +292,9 @@ public class Main {
     }
 
     /**
-     * sortMain is used to call sort() function on algorithm objects in array algorithms between f and valueF. If the user choosed
+     * sortMain() is used to call sort() function on algorithm objects in array algorithms between f and valueF. If the user choosed
      * a specific, f starts at choose-1 and there is only one iteration. If the user clicked on runEverything, f is 0 and valueF the
-     * amount of algorithms found. It then creates an Excel file and writes all return values from the algorithms in it.
+     * amount of algorithms found. It then creates an excel file and writes all return values from the algorithms in it.
      *
      * @param f
      * @param valueF
@@ -330,7 +329,7 @@ public class Main {
         FileOutputStream excelOutput = new FileOutputStream("output/excel_output.xlsx");
         workbook.write(excelOutput);
         ClearCmd();
-        System.out.println("Successfully finished. Output-file can be found in output/");
+        System.out.println("Successfully finished. Output file can be found in output/");
     }
 
     /**
