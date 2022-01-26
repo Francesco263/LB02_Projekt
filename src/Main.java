@@ -292,7 +292,7 @@ public class Main {
             row.createCell(3).setCellValue("Zugriffe");
             row.createCell(4).setCellValue("Vergleiche");
             for (int i = f; i < valueF; i++){
-                int[] tempArray = arrays[y].getArray();
+                int[] tempArray = arrays[y].getArray().clone();
                 algorithms[i].sort(tempArray);
                 XSSFRow row1 = sheet.createRow(u+1);
                 row1.createCell(0).setCellValue(algorithmNames.get(i));
