@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * This Class Sorts an Array with the Quick Sort Algorithm using the most left value as the pivot
  * and returns the values to the Interface Algorithm.
