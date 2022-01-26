@@ -10,10 +10,10 @@ public class SelectionSort extends Algorithm {
     /**
      * Values are defined in order to count them and return them to Algorithm.java
      */
-    private int time = 0;
-    private int storage = 0;
-    private int comparisons = 0;
-    private int arrayAccess = 0;
+    private long time = 0;
+    private long storage = 0;
+    private long comparisons = 0;
+    private long arrayAccess = 0;
 
     /**
      * This Method sorts the array and changes the position of the values in the array respectively.
@@ -62,7 +62,7 @@ public class SelectionSort extends Algorithm {
      * The comparisons that the Algorithm made in the array, for example is 1 > 2.
      */
     @Override
-    public int getComparison() {
+    public long getComparison() {
         return comparisons;
     }
 
@@ -72,7 +72,7 @@ public class SelectionSort extends Algorithm {
      * The times the array was accessed through the Methods
      */
     @Override
-    public int getArrayAccess() {
+    public long getArrayAccess() {
         return arrayAccess;
     }
 
@@ -82,7 +82,7 @@ public class SelectionSort extends Algorithm {
      * The amount of storage that has been used for this algorithm.
      */
     @Override
-    public int getStorage() {
+    public long getStorage() {
         return storage;
     }
 }
