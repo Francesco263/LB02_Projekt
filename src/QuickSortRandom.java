@@ -10,18 +10,16 @@ import java.util.Random;
  * @since 2021-01-18
  */
 public class QuickSortRandom extends Algorithm {
-
     /**
      * Values are defined in order to count them and return them to Algorithm.java
      */
-    private long time = 0;
-    private long storage = 0;
-    private long comparisons = 0;
-    private long arrayAccess = 0;
+    private long time = 0,
+                 storage = 0,
+                 comparisons = 0,
+                 arrayAccess = 0;
 
     /**
      * takes array from Interface Algorithm
-     *
      * @param array
      */
     @Override
@@ -37,7 +35,6 @@ public class QuickSortRandom extends Algorithm {
     /**
      * checks if more than 1 item is to be sorted, gets new pivot value
      * call quicksort on left and right side
-     *
      * @param array
      * @param low
      * @param high
@@ -52,7 +49,6 @@ public class QuickSortRandom extends Algorithm {
 
     /**
      * swaps the values given to the numbers, respectably value1 and value2
-     *
      * @param array
      * @param value1
      * @param value2
@@ -66,7 +62,6 @@ public class QuickSortRandom extends Algorithm {
 
     /**
      * picks a random pivot
-     *
      * @param low
      * @param high
      * @return
@@ -78,7 +73,6 @@ public class QuickSortRandom extends Algorithm {
 
     /**
      * splits the array and calls method swapvalues().
-     *
      * @param array
      * @param low
      * @param high
@@ -95,9 +89,7 @@ public class QuickSortRandom extends Algorithm {
         }
         swapValues(array, low, border - 1);
         return border - 1;
-
     }
-
 
     /**
      * The value time evaluates the time, that is taken, in order to sort the array.

@@ -7,14 +7,13 @@
  * @since 2021-01-17
  */
 public class InsertionSort extends Algorithm {
-
     /**
      * Values are defined in order to count them and return them to Algorithm.java
      */
-    private long time = 0;
-    private long storage = 0;
-    private long comparisons = 0;
-    private long arrayAccess = 0;
+    private long time = 0,
+                 storage = 0,
+                 comparisons = 0,
+                 arrayAccess = 0;
 
     /**
      * @param array Sorts the Array with the sort method and swaps the values in the method
@@ -40,7 +39,6 @@ public class InsertionSort extends Algorithm {
         }
         long end = System.nanoTime();
         time = (int) (end - start);
-
     }
 
     /**

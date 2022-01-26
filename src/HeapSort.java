@@ -20,11 +20,11 @@ public class HeapSort extends Algorithm {
     public void sort(int array[]) {
         int number = array.length;
         storage = number * 32 + 3 * 32;
-
         long start = System.nanoTime();
 
-        for (int i = number / 2 - 1; i >= 0; i--)
+        for (int i = number / 2 - 1; i >= 0; i--) {
             heap(array, number, i);
+        }
 
         for (int i = number - 1; i > 0; i--) {
             arrayAccess += 3;
