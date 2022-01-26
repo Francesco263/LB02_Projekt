@@ -307,6 +307,7 @@ public class Main {
     public void sortMain(int f, int valueF, ArrayDat[] arrays, Algorithm[] algorithms, Vector<String> algorithmNames, String[] filenames) throws IOException {
         XSSFWorkbook workbook = new XSSFWorkbook();
         for (int y = 0; y < 9; y++) {
+            System.out.println("\n Current file running: " + filenames[y] + "\n");
             int u = 0;
             XSSFSheet sheet = workbook.createSheet(filenames[y]);
             XSSFRow row = sheet.createRow(0);
@@ -315,6 +316,7 @@ public class Main {
             row.createCell(3).setCellValue("Zugriffe");
             row.createCell(4).setCellValue("Vergleiche");
             for (int i = f; i < valueF; i++) {
+                System.out.println("Current algorithm running: " + algorithmNames.get(i));
                 int[] tempArray = arrays[y].getArray().clone();
                 algorithms[i].sort(tempArray);
                 XSSFRow row1 = sheet.createRow(u + 1);
@@ -323,6 +325,7 @@ public class Main {
                 row1.createCell(2).setCellValue(algorithms[i].getStorage());
                 row1.createCell(3).setCellValue(algorithms[i].getArrayAccess());
                 row1.createCell(4).setCellValue(algorithms[i].getComparison());
+                System.out.println(algorithmNames.get(i) + " finished.");
                 u++;
             }
         }
