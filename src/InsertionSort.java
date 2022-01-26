@@ -27,7 +27,6 @@ public class InsertionSort extends Algorithm {
         int lenght = array.length;
         for (int i = 1; i < lenght; i++) {
             comparisons++;
-            storage += 32;
             int index = array[i];
             arrayAccess++;
             int j = array[i];
