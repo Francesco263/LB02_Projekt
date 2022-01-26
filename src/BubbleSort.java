@@ -11,10 +11,10 @@ public class BubbleSort extends Algorithm {
     /**
      * Values are defined in order to count them and return them to Algorithm.java
      */
-    private long time = 0;
-    private long storage = 0;
-    private long comparisons = 0;
-    private long arrayAccess = 0;
+    private long time = 0,
+                 storage = 0,
+                 comparisons = 0,
+                 arrayAccess = 0;
 
     /**
      * @param array Method sort goes through the array given from its superclass and
@@ -45,7 +45,6 @@ public class BubbleSort extends Algorithm {
             }
 
         }
-
 
         long end = System.nanoTime();
         time = (long) (end - start);
