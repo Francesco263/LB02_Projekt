@@ -1,12 +1,11 @@
-import java.util.Arrays;
-
 /**
  * This Class Sorts an Array with the Quick Sort Algorithm using the most left value as the pivot
  * and returns the values to the Interface Algorithm.
  * The QuickSort is not a stable Algorithm
+ *
  * @author Philip Jovanovic
- * @since 2021-01-18
  * @version 2.0
+ * @since 2021-01-18
  */
 public class QuickSortLeft extends Algorithm {
     /**
@@ -19,9 +18,7 @@ public class QuickSortLeft extends Algorithm {
 
 
     /**
-     *
-     * @param array
-     * Takes Array from Interface and defines left and right Position. Calls _quickSort Method.
+     * @param array Takes Array from Interface and defines left and right Position. Calls _quickSort Method.
      */
     @Override
     public void sort(int[] array) {
@@ -37,36 +34,34 @@ public class QuickSortLeft extends Algorithm {
     }
 
     /**
-     *
      * @param array
      * @param left
-     * @param right
-     * This Method Sorts the array given in the sort() method. Then it swaps the values in the array and calls itself again.
-     * This is done until the Array is sorted.
+     * @param right This Method Sorts the array given in the sort() method. Then it swaps the values in the array and calls itself again.
+     *              This is done until the Array is sorted.
      */
 
-    private void _quickSort(int[] array, int left, int right){
+    private void _quickSort(int[] array, int left, int right) {
 
 
-        if (left < right){
+        if (left < right) {
             //Selects the pivot at the most left position in array
             int pivot = array[left];
             int i = left;
             int j = right;
-            while (i < j){
+            while (i < j) {
                 i += 1;
                 // for elements greater than the pivot we selected before
-                while (i <= right && array[i] < pivot){
+                while (i <= right && array[i] < pivot) {
                     comparisons++;
                     i += 1;
                 }
                 // finds elements smaller than the pivot we selected before
-                while (j >= 1 && array[j] > pivot){
+                while (j >= 1 && array[j] > pivot) {
                     comparisons++;
                     j -= 1;
                 }
                 //swaps pivot
-                if (i <= right && i < j){
+                if (i <= right && i < j) {
                     swap(array, i, j);
                 }
                 comparisons += 2;
@@ -83,13 +78,14 @@ public class QuickSortLeft extends Algorithm {
 
     /**
      * swaps the numbers at the given values i and j
+     *
      * @param array
      * @param i
      * @param j
      */
-    private void swap(int[] array, int i, int j){
+    private void swap(int[] array, int i, int j) {
 
-        if (i >= 0 && j >= 0 && i < array.length && j < array.length){
+        if (i >= 0 && j >= 0 && i < array.length && j < array.length) {
             arrayAccess += 3;
             int temp = array[i];
             array[i] = array[j];
@@ -98,10 +94,6 @@ public class QuickSortLeft extends Algorithm {
 
 
     }
-
-
-
-
 
 
     /**
@@ -114,9 +106,7 @@ public class QuickSortLeft extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The comparisons that the Algorithm made in the array, for example is 1 > 2.
+     * @return The comparisons that the Algorithm made in the array, for example is 1 > 2.
      */
     @Override
     public long getComparison() {
@@ -124,9 +114,7 @@ public class QuickSortLeft extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The times the array was accessed through the Methods
+     * @return The times the array was accessed through the Methods
      */
     @Override
     public long getArrayAccess() {
@@ -134,9 +122,7 @@ public class QuickSortLeft extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The amount of storage that has been used for this algorithm.
+     * @return The amount of storage that has been used for this algorithm.
      */
     @Override
     public long getStorage() {

@@ -1,9 +1,10 @@
 /**
  * This Class Sorts an Array with the Heap Sort Algorithm and returns the values to the Interface Algorithm
  * The HeapSort is not a stable Algorithm
+ *
  * @author Philip Jovanovic
- * @since 2021-01-17
  * @version 2.0
+ * @since 2021-01-17
  */
 
 public class HeapSort extends Algorithm {
@@ -15,6 +16,7 @@ public class HeapSort extends Algorithm {
 
     /**
      * Method sorts array and switches the values in array
+     *
      * @param array is inherited from Algorithm with extends
      */
 
@@ -40,15 +42,13 @@ public class HeapSort extends Algorithm {
             heap(array, i, 0);
         }
         long end = System.nanoTime();
-        time = (int)(end - start);
+        time = (int) (end - start);
     }
 
     /**
-     *
      * @param array
      * @param n
-     * @param i
-     * checks the values in the array and swaps them correctly
+     * @param i     checks the values in the array and swaps them correctly
      */
     void heap(int array[], int n, int i) {
         int biggest = i;
@@ -85,9 +85,7 @@ public class HeapSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The comparisons that the Algorithm made in the array, for example is 1 > 2.
+     * @return The comparisons that the Algorithm made in the array, for example is 1 > 2.
      */
     @Override
     public long getComparison() {
@@ -95,9 +93,7 @@ public class HeapSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The times the array was accessed through the Methods
+     * @return The times the array was accessed through the Methods
      */
     @Override
     public long getArrayAccess() {
@@ -105,9 +101,7 @@ public class HeapSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The amount of storage that has been used for this algorithm.
+     * @return The amount of storage that has been used for this algorithm.
      */
     @Override
     public long getStorage() {

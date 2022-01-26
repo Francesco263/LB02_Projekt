@@ -1,9 +1,10 @@
 /**
  * This Class Sorts an Array with the Cocktail Sort Algorithm and returns the values to the Interface Algorithm
  * The CocktailSort is a stable Algorithm
+ *
  * @author Philip Jovanovic
- * @since 2021-01-17
  * @version 2.0
+ * @since 2021-01-17
  */
 public class CocktailSort extends Algorithm {
 
@@ -16,10 +17,9 @@ public class CocktailSort extends Algorithm {
     private long arrayAccess = 0;
 
     /**
-     * @param array
-     * Method sort goes through the array given from its superclass and
-     * iterates through it and swaps the position until the array is sorted,
-     * this is done by the CocktailSort Algorithm.
+     * @param array Method sort goes through the array given from its superclass and
+     *              iterates through it and swaps the position until the array is sorted,
+     *              this is done by the CocktailSort Algorithm.
      */
     @Override
     public void sort(int[] array) {
@@ -29,11 +29,11 @@ public class CocktailSort extends Algorithm {
         int beginning = 0;
         int end = array.length;
 
-        while (swap == true){
+        while (swap == true) {
             swap = false;
             for (int i = beginning; i < end - 1; i++) {
                 comparisons++;
-                if (array[i] > array[i + 1]){
+                if (array[i] > array[i + 1]) {
                     int temp = array[i];
                     arrayAccess += 2;
                     array[i] = array[i + 1];
@@ -49,7 +49,7 @@ public class CocktailSort extends Algorithm {
 
             for (int i = end - 1; i >= beginning; i--) {
                 comparisons++;
-                if (array[i] > array[i + 1]){
+                if (array[i] > array[i + 1]) {
                     int temp = array[i];
                     arrayAccess += 2;
                     array[i] = array[i + 1];
@@ -60,7 +60,7 @@ public class CocktailSort extends Algorithm {
             beginning = beginning + 1;
         }
         long endTime = System.nanoTime();
-        time = (int)(endTime - startTime);
+        time = (int) (endTime - startTime);
 
     }
 
@@ -74,9 +74,7 @@ public class CocktailSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The comparisons that the Algorithm made in the array, for example is 1 > 2.
+     * @return The comparisons that the Algorithm made in the array, for example is 1 > 2.
      */
     @Override
     public long getComparison() {
@@ -84,9 +82,7 @@ public class CocktailSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The times the array was accessed through the Methods
+     * @return The times the array was accessed through the Methods
      */
     @Override
     public long getArrayAccess() {
@@ -94,9 +90,7 @@ public class CocktailSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The amount of storage that has been used for this algorithm.
+     * @return The amount of storage that has been used for this algorithm.
      */
     @Override
     public long getStorage() {

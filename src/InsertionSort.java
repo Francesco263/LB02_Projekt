@@ -1,9 +1,10 @@
 /**
  * This Class Sorts an Array with the Insertion Sort Algorithm and returns the values to the Interface Algorithm
  * The InsertionSort is a stable Algorithm
+ *
  * @author Philip Jovanovic
- * @since 2021-01-17
  * @version 2.0
+ * @since 2021-01-17
  */
 public class InsertionSort extends Algorithm {
 
@@ -16,9 +17,7 @@ public class InsertionSort extends Algorithm {
     private long arrayAccess = 0;
 
     /**
-     *
-     * @param array
-     * Sorts the Array with the sort method and swaps the values in the method
+     * @param array Sorts the Array with the sort method and swaps the values in the method
      */
     @Override
     public void sort(int[] array) {
@@ -32,7 +31,7 @@ public class InsertionSort extends Algorithm {
             int index = array[i];
             arrayAccess++;
             int j = array[i];
-            for (j = 1 - 1; (j >= 0) && (index < array[j]) ; j--) {
+            for (j = 1 - 1; (j >= 0) && (index < array[j]); j--) {
                 comparisons++;
                 arrayAccess++;
                 array[j + 1] = array[j];
@@ -55,9 +54,7 @@ public class InsertionSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The comparisons that the Algorithm made in the array, for example is 1 > 2.
+     * @return The comparisons that the Algorithm made in the array, for example is 1 > 2.
      */
     @Override
     public long getComparison() {
@@ -65,9 +62,7 @@ public class InsertionSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The times the array was accessed through the Methods
+     * @return The times the array was accessed through the Methods
      */
     @Override
     public long getArrayAccess() {
@@ -75,9 +70,7 @@ public class InsertionSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The amount of storage that has been used for this algorithm.
+     * @return The amount of storage that has been used for this algorithm.
      */
     @Override
     public long getStorage() {

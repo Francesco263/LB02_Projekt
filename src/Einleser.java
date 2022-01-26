@@ -1,22 +1,25 @@
 import java.util.Scanner;
+
 /**
  * @author Francesco Feroldi
- * @since 2021-01-24
  * @version 1.0
+ * @since 2021-01-24
  */
 public class Einleser {
     static Scanner scanner;
+
     public Einleser() {
         scanner = new Scanner(System.in);
     }
+
     public char readChar(String msg, String err, char[] options) {
         if (msg != null) {
             System.out.print(msg);
         }
         if (err == null) {
             err = options == null ?
-                "Please enter a valid character > " :
-                "Please enter a valid character from the list > ";
+                    "Please enter a valid character > " :
+                    "Please enter a valid character from the list > ";
         }
         char ch;
         if (options != null) {
@@ -39,15 +42,19 @@ public class Einleser {
         }
         return ch;
     }
+
     public char readChar(String msg) {
         return readChar(msg, null, null);
     }
+
     public char readChar(String msg, String err) {
         return readChar(msg, err, null);
     }
+
     public char readChar(String msg, char[] options) {
         return readChar(msg, null, options);
     }
+
     public char readChar(char[] options) {
         return readChar(null, null, options);
     }

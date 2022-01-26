@@ -1,9 +1,10 @@
 /**
  * This Class Sorts an Array with the Selection Sort Algorithm and returns the values to the Interface Algorithm
  * The SelectionSort is not a stable Algorithm
+ *
  * @author Philip Jovanovic
- * @since 2021-01-18
  * @version 2.0
+ * @since 2021-01-18
  */
 public class SelectionSort extends Algorithm {
 
@@ -17,6 +18,7 @@ public class SelectionSort extends Algorithm {
 
     /**
      * This Method sorts the array and changes the position of the values in the array respectively.
+     *
      * @param array
      */
     @Override
@@ -45,8 +47,6 @@ public class SelectionSort extends Algorithm {
     }
 
 
-
-
     /**
      * The value time evaluates the time, that is taken, in order to sort the array.
      * The value in time is then returned through the method getTime to its superclass Algorithm.
@@ -57,9 +57,7 @@ public class SelectionSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The comparisons that the Algorithm made in the array, for example is 1 > 2.
+     * @return The comparisons that the Algorithm made in the array, for example is 1 > 2.
      */
     @Override
     public long getComparison() {
@@ -67,9 +65,7 @@ public class SelectionSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The times the array was accessed through the Methods
+     * @return The times the array was accessed through the Methods
      */
     @Override
     public long getArrayAccess() {
@@ -77,9 +73,7 @@ public class SelectionSort extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The amount of storage that has been used for this algorithm.
+     * @return The amount of storage that has been used for this algorithm.
      */
     @Override
     public long getStorage() {
