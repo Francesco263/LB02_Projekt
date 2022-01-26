@@ -5,9 +5,10 @@ import java.util.Random;
  * This Class Sorts an Array with the Quick Sort Algorithm using a random value in the array as the pivot
  * and returns the values to the Interface Algorithm.
  * The QuickSort is not a stable Algorithm
+ *
  * @author Philip Jovanovic
- * @since 2021-01-18
  * @version 2.0
+ * @since 2021-01-18
  */
 public class QuickSortRandom extends Algorithm {
 
@@ -21,6 +22,7 @@ public class QuickSortRandom extends Algorithm {
 
     /**
      * takes array from Interface Algorithm
+     *
      * @param array
      */
     @Override
@@ -36,12 +38,13 @@ public class QuickSortRandom extends Algorithm {
     /**
      * checks if more than 1 item is to be sorted, gets new pivot value
      * call quicksort on left and right side
+     *
      * @param array
      * @param low
      * @param high
      */
-    private void _quickSort(int[] array, int low, int high){
-        if (low < high + 1){
+    private void _quickSort(int[] array, int low, int high) {
+        if (low < high + 1) {
             int split = split(array, low, high);
             _quickSort(array, low, split - 1);
             _quickSort(array, split + 1, high);
@@ -50,11 +53,12 @@ public class QuickSortRandom extends Algorithm {
 
     /**
      * swaps the values given to the numbers, respectably value1 and value2
+     *
      * @param array
      * @param value1
      * @param value2
      */
-    private void swapValues(int[] array, int value1, int value2){
+    private void swapValues(int[] array, int value1, int value2) {
         arrayAccess += 3;
         int temp = array[value1];
         array[value1] = array[value2];
@@ -63,27 +67,29 @@ public class QuickSortRandom extends Algorithm {
 
     /**
      * picks a random pivot
+     *
      * @param low
      * @param high
      * @return
      */
-    public int pivot(int low, int high){
+    public int pivot(int low, int high) {
         Random rand = new Random();
         return rand.nextInt((high - low) + 1) + low;
     }
 
     /**
      * splits the array and calls method swapvalues().
+     *
      * @param array
      * @param low
      * @param high
      * @return
      */
-    private int split(int[] array, int low, int high){
+    private int split(int[] array, int low, int high) {
         swapValues(array, low, pivot(low, high));
         int border = low + 1;
-        for (int i = border; i <= high; i++){
-            if (array[i] < array[low]){
+        for (int i = border; i <= high; i++) {
+            if (array[i] < array[low]) {
                 comparisons++;
                 swapValues(array, i, border++);
             }
@@ -92,14 +98,6 @@ public class QuickSortRandom extends Algorithm {
         return border - 1;
 
     }
-
-
-
-
-
-
-
-
 
 
     /**
@@ -112,9 +110,7 @@ public class QuickSortRandom extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The comparisons that the Algorithm made in the array, for example is 1 > 2.
+     * @return The comparisons that the Algorithm made in the array, for example is 1 > 2.
      */
     @Override
     public long getComparison() {
@@ -122,9 +118,7 @@ public class QuickSortRandom extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The times the array was accessed through the Methods
+     * @return The times the array was accessed through the Methods
      */
     @Override
     public long getArrayAccess() {
@@ -132,9 +126,7 @@ public class QuickSortRandom extends Algorithm {
     }
 
     /**
-     *
-     * @return
-     * The amount of storage that has been used for this algorithm.
+     * @return The amount of storage that has been used for this algorithm.
      */
     @Override
     public long getStorage() {
