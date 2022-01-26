@@ -48,7 +48,7 @@ public class BubbleSort extends Algorithm {
 
 
         long end = System.nanoTime();
-        time = (int) (end - start);
+        time = (long) (end - start);
 
     }
 

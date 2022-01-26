@@ -42,7 +42,7 @@ public class SelectionSort extends Algorithm {
             array[i] = temp;
         }
         long end = System.nanoTime();
-        time = (int) (end - start);
+        time = (long) (end - start);
 
     }
 

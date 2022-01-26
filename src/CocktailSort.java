@@ -60,7 +60,7 @@ public class CocktailSort extends Algorithm {
             beginning = beginning + 1;
         }
         long endTime = System.nanoTime();
-        time = (int) (endTime - startTime);
+        time = (long) (endTime - startTime);
 
     }
 
