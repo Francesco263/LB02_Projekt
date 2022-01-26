@@ -4,7 +4,7 @@
  *
  * @author Philip Jovanovic
  * @version 2.0
- * @since 2021-01-17
+ * @since 2021-01-24
  */
 public class CocktailSort extends Algorithm {
 
