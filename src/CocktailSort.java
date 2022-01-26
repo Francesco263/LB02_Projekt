@@ -7,6 +7,7 @@
  * @since 2021-01-24
  */
 public class CocktailSort extends Algorithm {
+
     /**
      * Values are defined in order to count them and return them to Algorithm.java
      */
@@ -58,9 +59,9 @@ public class CocktailSort extends Algorithm {
             }
             beginning = beginning + 1;
         }
-
         long endTime = System.nanoTime();
-        time = (int) (endTime - startTime);
+        time = (long) (endTime - startTime);
+
     }
 
     /**

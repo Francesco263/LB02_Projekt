@@ -7,23 +7,27 @@
  * @since 2021-01-18
  */
 public class SelectionSort extends Algorithm {
+
     /**
      * Values are defined in order to count them and return them to Algorithm.java
      */
-    private long time = 0,
-                 storage = 0,
-                 comparisons = 0,
-                 arrayAccess = 0;
+    private long time = 0;
+    private long storage = 0;
+    private long comparisons = 0;
+    private long arrayAccess = 0;
 
     /**
      * This Method sorts the array and changes the position of the values in the array respectively.
+     *
      * @param array
      */
     @Override
     public void sort(int[] array) {
         int number = array.length;
+
         storage = number * 32 + 5 * 32;
         long start = System.nanoTime();
+
 
         for (int i = 0; i < number - 1; i++) {
             int index_minimum = i;
@@ -37,10 +41,11 @@ public class SelectionSort extends Algorithm {
             array[index_minimum] = array[i];
             array[i] = temp;
         }
-
         long end = System.nanoTime();
-        time = (int) (end - start);
+        time = (long) (end - start);
+
     }
+
 
     /**
      * The value time evaluates the time, that is taken, in order to sort the array.
