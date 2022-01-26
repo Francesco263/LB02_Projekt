@@ -1,5 +1,6 @@
 /**
  * This Class Sorts an Array with the Selection Sort Algorithm and returns the values to the Interface Algorithm
+ * The SelectionSort is not a stable Algorithm
  * @author Philip Jovanovic
  * @since 2021-01-18
  * @version 2.0
