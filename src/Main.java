@@ -29,8 +29,9 @@ public class Main {
      * @throws IllegalAccessException
      * @throws IOException
      */
-    private void run() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+    private void run() throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         Greetings();
+        prepareArrayFileNames(chooseRunMethod());
     }
     /**
      * Greetings() Method is used to welcome the user
@@ -41,16 +42,15 @@ public class Main {
      * @throws IllegalAccessException
      * @throws IOException
      */
-    public void Greetings() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+    public void Greetings(){
         System.out.println("Welcome to our sorting program v.3.4.1");
-        System.out.println("_____________________________________");
+        System.out.println("______________________________________");
         try {
             Thread.sleep(1300);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         ClearCmd();
-        chooseRunMethod();
     }
     /**
      * ClearCmd() clears the cmd
@@ -70,7 +70,7 @@ public class Main {
      * @throws IllegalAccessException
      * @throws IOException
      */
-    public void chooseRunMethod() throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
+    public char chooseRunMethod() {
         char runMethodSelection = ' ';
         System.out.println("Choose an option:\n");
         while (runMethodSelection == ' '){
@@ -85,7 +85,7 @@ public class Main {
         else{
             ClearCmd();
         }
-        prepareArrayFileNames(runMethodSelection);
+        return runMethodSelection;
     }
     /**
      * prepareArrayFileNames and scanFiles are used to scan the directory for available algorithms and save them without ".java" in algorithmNames Vector.
@@ -160,7 +160,7 @@ public class Main {
         System.out.println("Please wait while the program is calculating...");
         for (int i = 0; i < selection.length; i++){
             if (algorithmSelection == selection[i]){
-                initialize(2,(i+1), algorithmNames);
+                initialize(2,i, algorithmNames);
             }
         }
     }
@@ -266,7 +266,7 @@ public class Main {
             sortMain(0,algorithms.length,arrays, algorithms, algorithmNames, filenames);
         }
         else{
-            sortMain((choose - 1),choose,arrays, algorithms, algorithmNames, filenames);
+            sortMain(choose,(choose+1),arrays, algorithms, algorithmNames, filenames);
         }
     }
     /**
@@ -306,7 +306,7 @@ public class Main {
         FileOutputStream excelOutput = new FileOutputStream("output/excel_output.xlsx");
         workbook.write(excelOutput);
         ClearCmd();
-        System.out.println("Successfully finished. Output-file can be found in LB02_Projekt/output");
+        System.out.println("Successfully finished. Output-file can be found in output/");
     }
     /**
      * createAlgorithms() is used to iterate in algorithmNames and call the method createAlgorithmFromString(). It then

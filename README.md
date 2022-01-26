@@ -12,8 +12,10 @@ Diese Program vergleicht Algorithmen basierend auf:
  - Array-Zugriffe
    
 Anmerkungen:
- - Um Algorithmen hinzuzufügen, ziehen Sie die java Datei [in diesen Ordner](src). Bitte beachten Sie, dass die 
+
+ - Damit das Program fehlerfrei ausgeführt werden kann, stellen Sie bitte sicher, dass die SDK-Version 17.0.1 verwendet wird.
+ - Um Stack-Overflow Errors zu vermeiden, empfielt es sich, den Speicherlimit des Projekts zu erhöhen.
+ - Falls Sie weitere Algorithmen hinzufügen möchten, ziehen Sie die java Datei [in diesen Ordner](src). Bitte beachten Sie, dass die 
    java Datei die Methoden des "Algorithm.java" Interfaces implementieren muss.
-   
  - Nach der erfolgreichen Ausführung finden Sie die Excel Datei mit den entsprechenden Auswertungen [in diesem Ordner](output). 
 
