@@ -1,5 +1,6 @@
 /**
  * This Class Sorts an Array with the Heap Sort Algorithm and returns the values to the Interface Algorithm
+ * The HeapSort is not a stable Algorithm
  * @author Philip Jovanovic
  * @since 2021-01-17
  * @version 2.0

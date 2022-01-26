@@ -4,6 +4,7 @@ import java.util.Random;
 /**
  * This Class Sorts an Array with the Quick Sort Algorithm using a random value in the array as the pivot
  * and returns the values to the Interface Algorithm.
+ * The QuickSort is not a stable Algorithm
  * @author Philip Jovanovic
  * @since 2021-01-18
  * @version 2.0

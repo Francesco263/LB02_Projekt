@@ -1,5 +1,6 @@
 /**
  * This Class Sorts an Array with the Cocktail Sort Algorithm and returns the values to the Interface Algorithm
+ * The CocktailSort is a stable Algorithm
  * @author Philip Jovanovic
  * @since 2021-01-17
  * @version 2.0
