@@ -10,10 +10,10 @@ public class CocktailSort extends Algorithm {
     /**
      * Values are defined in order to count them and return them to Algorithm.java
      */
-    private int time = 0;
-    private int storage = 0;
-    private int comparisons = 0;
-    private static int arrayAccess = 0;
+    private long time = 0;
+    private long storage = 0;
+    private long comparisons = 0;
+    private long arrayAccess = 0;
 
     /**
      * @param array
@@ -24,18 +24,18 @@ public class CocktailSort extends Algorithm {
     @Override
     public void sort(int[] array) {
         long startTime = System.nanoTime();
-        storage = 32 * 2 + 32 + 8;
+        storage = 32 * array.length * 3 + 8;
         boolean swap = true;
         int beginning = 0;
         int end = array.length;
 
         while (swap == true){
-            arrayAccess += 6;
             swap = false;
             for (int i = beginning; i < end - 1; i++) {
                 comparisons++;
                 if (array[i] > array[i + 1]){
                     int temp = array[i];
+                    arrayAccess += 2;
                     array[i] = array[i + 1];
                     array[i + 1] = temp;
                     swap = true;
@@ -51,6 +51,7 @@ public class CocktailSort extends Algorithm {
                 comparisons++;
                 if (array[i] > array[i + 1]){
                     int temp = array[i];
+                    arrayAccess += 2;
                     array[i] = array[i + 1];
                     array[i + 1] = temp;
                     swap = true;
@@ -78,7 +79,7 @@ public class CocktailSort extends Algorithm {
      * The comparisons that the Algorithm made in the array, for example is 1 > 2.
      */
     @Override
-    public int getComparison() {
+    public long getComparison() {
         return comparisons;
     }
 
@@ -88,7 +89,7 @@ public class CocktailSort extends Algorithm {
      * The times the array was accessed through the Methods
      */
     @Override
-    public int getArrayAccess() {
+    public long getArrayAccess() {
         return arrayAccess;
     }
 
@@ -98,7 +99,7 @@ public class CocktailSort extends Algorithm {
      * The amount of storage that has been used for this algorithm.
      */
     @Override
-    public int getStorage() {
+    public long getStorage() {
         return storage;
     }
 }
