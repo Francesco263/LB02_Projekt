@@ -4,6 +4,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.text.DecimalFormat;
 import java.util.Vector;
 
 /**
@@ -306,6 +307,7 @@ public class Main {
      */
     public void sortMain(int f, int valueF, ArrayDat[] arrays, Algorithm[] algorithms, Vector<String> algorithmNames, String[] filenames) throws IOException {
         XSSFWorkbook workbook = new XSSFWorkbook();
+        double percent = 0;
         for (int y = 0; y < 9; y++) {
             System.out.println("\n Current file running: " + filenames[y] + "\n");
             int u = 0;
@@ -316,7 +318,10 @@ public class Main {
             row.createCell(3).setCellValue("Zugriffe");
             row.createCell(4).setCellValue("Vergleiche");
             for (int i = f; i < valueF; i++) {
-                System.out.println("Current algorithm running: " + algorithmNames.get(i));
+                percent = percent + 1.58;
+                System.out.print("Current algorithm running: " + algorithmNames.get(i));
+                DecimalFormat df = new DecimalFormat("#.##");
+                System.out.println(" (" + df.format(percent) + "%)");
                 int[] tempArray = arrays[y].getArray().clone();
                 algorithms[i].sort(tempArray);
                 XSSFRow row1 = sheet.createRow(u + 1);
