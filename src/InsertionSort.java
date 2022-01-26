@@ -21,7 +21,7 @@ public class InsertionSort extends Algorithm {
      */
     @Override
     public void sort(int[] array) {
-        storage = 32 * array.length + 32 * 3;
+        storage = 32 * array.length + 32 * 4;
         long start = System.nanoTime();
 
         int lenght = array.length;

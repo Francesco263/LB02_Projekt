@@ -24,7 +24,7 @@ public class CocktailSort extends Algorithm {
     @Override
     public void sort(int[] array) {
         long startTime = System.nanoTime();
-        storage = 32 * array.length * 3 + 8;
+        storage = 32 * array.length + 32 * 3 + 8;
         boolean swap = true;
         int beginning = 0;
         int end = array.length;

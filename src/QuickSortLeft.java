@@ -26,7 +26,7 @@ public class QuickSortLeft extends Algorithm {
     public void sort(int[] array) {
 
         int n = array.length;
-        storage = 32 * (n + 4) * 32;
+        storage = 32 * (n + 4);
         long start = System.nanoTime();
         _quickSort(array, 0, array.length - 1);
         long end = System.nanoTime();
