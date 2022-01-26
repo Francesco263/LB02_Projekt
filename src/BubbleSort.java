@@ -22,12 +22,11 @@ public class BubbleSort extends Algorithm {
      */
     @Override
     public void sort(int[] array) {
-        int i;
-        int j = 0;
-        int temp;
-        int n = array.length;
-        boolean sorted;
-        sorted = true;
+        int i,
+            j = 0,
+            temp,
+            n = array.length;
+        boolean sorted = true;
         storage = n * 32 + 4 * 32 + 8;
         long start = System.nanoTime();
 
@@ -42,9 +41,8 @@ public class BubbleSort extends Algorithm {
                     array[j + 1] = temp;
                 }
             }
-
         }
-
+        
         long end = System.nanoTime();
         time = (int) (end - start);
     }
