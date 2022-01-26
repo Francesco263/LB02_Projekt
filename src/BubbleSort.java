@@ -13,7 +13,7 @@ public class BubbleSort extends Algorithm{
     private int time = 0;
     private int storage = 0;
     private int comparisons = 0;
-    private static int arrayAccess = 0;
+    private int arrayAccess = 0;
 
     /**
      * @param array
