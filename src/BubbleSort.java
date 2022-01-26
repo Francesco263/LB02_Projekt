@@ -7,7 +7,6 @@
  * @since 2021-01-17
  */
 public class BubbleSort extends Algorithm {
-
     /**
      * Values are defined in order to count them and return them to Algorithm.java
      */
@@ -46,12 +45,9 @@ public class BubbleSort extends Algorithm {
 
         }
 
-
         long end = System.nanoTime();
         time = (int) (end - start);
-
     }
-
 
     /**
      * The value time evaluates the time, that is taken, in order to sort the array.
