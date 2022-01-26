@@ -42,7 +42,7 @@ public class HeapSort extends Algorithm {
             heap(array, i, 0);
         }
         long end = System.nanoTime();
-        time = (int) (end - start);
+        time = (long) (end - start);
     }
 
     /**

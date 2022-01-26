@@ -31,7 +31,7 @@ public class QuickSortRandom extends Algorithm {
         long start = System.nanoTime();
         _quickSort(array, 0, array.length - 1);
         long end = System.nanoTime();
-        time = (int) (end - start);
+        time = (long) (end - start);
     }
 
     /**

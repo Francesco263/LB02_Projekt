@@ -39,7 +39,7 @@ public class InsertionSort extends Algorithm {
             array[j + 1] = index;
         }
         long end = System.nanoTime();
-        time = (int) (end - start);
+        time = (long) (end - start);
 
     }
 
